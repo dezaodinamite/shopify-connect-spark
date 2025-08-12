@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Hero from "@/components/Hero";
 import ProductSkeleton from "@/components/ProductSkeleton";
+import QuantityInput from "@/components/QuantityInput";
+import AddToCartIcon from "@/components/AddToCartIcon";
+import { useCart } from "@/hooks/useCart";
+import { toast } from "@/hooks/use-toast";
 
 interface ProductNode {
   id: string;
@@ -22,6 +26,8 @@ const currency = (amount: number, currencyCode: string) =>
 const Index = () => {
   const [products, setProducts] = useState<ProductNode[]>([]);
   const [loading, setLoading] = useState(true);
+  const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
+  const { addItem } = useCart();
 
   useEffect(() => {
     (async () => {
@@ -35,6 +41,12 @@ const Index = () => {
       }
       const nodes: ProductNode[] = (data as any)?.data?.products?.nodes ?? [];
       setProducts(nodes);
+      // Initialize quantities for all products
+      const initialQuantities: { [key: string]: number } = {};
+      nodes.forEach(product => {
+        initialQuantities[product.id] = 1;
+      });
+      setQuantities(initialQuantities);
       setLoading(false);
     })();
   }, []);
@@ -62,6 +74,40 @@ const Index = () => {
     canonical.setAttribute("href", window.location.href);
   }, []);
 
+
+  // Function to add product to cart
+  const addToCart = (product: ProductNode, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const variantId = product.variants?.nodes?.[0]?.id;
+    if (!variantId || !product.priceRange) return;
+    
+    const quantity = quantities[product.id] || 1;
+    const { amount, currencyCode } = product.priceRange.minVariantPrice;
+    
+    addItem({
+      merchandiseId: variantId,
+      title: product.title,
+      priceAmount: parseFloat(amount),
+      currencyCode,
+      imageUrl: product.featuredImage?.url,
+      handle: product.handle,
+      quantity: quantity,
+    });
+    
+    toast({
+      title: "Adicionado ao carrinho",
+      description: `${quantity}x ${product.title}`,
+    });
+  };
+
+  const updateQuantity = (productId: string, newQuantity: number) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: newQuantity
+    }));
+  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -102,8 +148,23 @@ const Index = () => {
                       <span className="text-lg font-bold text-brand">
                         {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
                       </span>
-                      <Button size="sm" variant="brand" className="rounded-full" onClick={(e) => e.preventDefault()}>
-                        Ver produto
+                    </div>
+                    <div className="flex items-center gap-2 pt-2" onClick={(e) => e.preventDefault()}>
+                      <QuantityInput
+                        value={quantities[p.id] || 1}
+                        onChange={(newQty) => updateQuantity(p.id, newQty)}
+                        min={1}
+                        max={99}
+                        className="flex-shrink-0"
+                      />
+                      <Button 
+                        size="sm" 
+                        variant="brand" 
+                        className="!rounded-full flex items-center gap-1 flex-1" 
+                        onClick={(e) => addToCart(p, e)}
+                      >
+                        <AddToCartIcon size={14} />
+                        Adicionar
                       </Button>
                     </div>
                   </div>
