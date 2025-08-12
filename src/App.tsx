@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -25,9 +27,9 @@ const App = () => (
           <Route path="/cart" element={<Cart />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
