@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCart } from "@/hooks/useCart";
 import { ProductImageZoom } from "@/components/ProductImageZoom";
+import { toast } from "@/hooks/use-toast";
 
 interface Product {
   id: string;
@@ -108,6 +109,10 @@ export default function ProductPage() {
       imageUrl: activeImage || product.featuredImage?.url,
       handle: product.handle,
       quantity: qty,
+    });
+    toast({
+      title: "Adicionado ao carrinho",
+      description: `${qty}x ${product.title}`,
     });
   }
 

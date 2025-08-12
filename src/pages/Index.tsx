@@ -130,72 +130,84 @@ const Index = () => {
 
       {/* Bloco 1 */}
       <section id="sobre" className="py-16">
-        <div className="container mx-auto grid items-center gap-12 md:grid-cols-2">
-          <div className="rounded-xl overflow-hidden shadow-sm">
-            <img
-              src="/lovable-uploads/80aa8876-94e5-4233-960f-f1a850dba0e2.png"
-              alt="Consumidora apresentando a bebida Suívie Jabuticaba"
-              className="w-full h-[420px] md:h-[520px] object-cover"
-              loading="lazy"
-            />
+        <div className="container mx-auto">
+          <div className="rounded-2xl border bg-gradient-to-br from-primary/5 via-background to-brand/5 p-6 md:p-10 shadow-sm animate-fade-in">
+            <div className="grid items-center gap-12 md:grid-cols-2">
+              <div className="rounded-xl overflow-hidden shadow-sm">
+                <img
+                  src="/lovable-uploads/80aa8876-94e5-4233-960f-f1a850dba0e2.png"
+                  alt="Consumidora apresentando a bebida Suívie Jabuticaba"
+                  className="w-full h-[420px] md:h-[520px] object-cover hover-scale"
+                  loading="lazy"
+                />
+              </div>
+              <article>
+                <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+                  Primeira bebida naturalmente antioxidante do mundo
+                </h2>
+                <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
+                  Bem-vindo à Suivie Jabuticaba, a PRIMEIRA bebida naturalmente antioxidante do mundo. Combinamos a natureza Brasileira com a qualidade Suíça. Seja para um pré-treino para melhorar as funções do organismo, ou pós a atividade física para recuperar eletrólitos e repor energia, essa bebida contém a magia da Jabutica.
+                </p>
+              </article>
+            </div>
           </div>
-          <article>
-            <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              Primeira bebida naturalmente antioxidante do mundo
-            </h2>
-            <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
-              Bem-vindo à Suivie Jabuticaba, a PRIMEIRA bebida naturalmente antioxidante do mundo. Combinamos a natureza Brasileira com a qualidade Suíça. Seja para um pré-treino para melhorar as funções do organismo, ou pós a atividade física para recuperar eletrólitos e repor energia, essa bebida contém a magia da Jabutica.
-            </p>
-          </article>
         </div>
       </section>
 
       {/* Bloco 2 */}
-      <section className="bg-muted/40 py-16">
-        <div className="container mx-auto grid items-center gap-12 md:grid-cols-2">
-          <article className="order-2 md:order-1">
-            <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              O melhor do Brasil mantido em segredo, até agora...
-            </h2>
-            <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
-              Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
-            </p>
-          </article>
-          <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm">
-            <img
-              src="/lovable-uploads/d3257490-ff08-4377-a55f-214e70c3964b.png"
-              alt="Jabuticabas - super fruta rica em antioxidantes"
-              className="w-full h-[360px] md:h-[460px] object-contain bg-card p-6"
-              loading="lazy"
-            />
+      <section className="py-16">
+        <div className="container mx-auto">
+          <div className="rounded-2xl border bg-gradient-to-br from-background via-background to-primary/5 p-6 md:p-10 shadow-sm animate-fade-in">
+            <div className="grid items-center gap-12 md:grid-cols-2">
+              <article className="order-2 md:order-1">
+                <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+                  O melhor do Brasil mantido em segredo, até agora...
+                </h2>
+                <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
+                  Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
+                </p>
+              </article>
+              <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm">
+                <img
+                  src="/lovable-uploads/d3257490-ff08-4377-a55f-214e70c3964b.png"
+                  alt="Jabuticabas - super fruta rica em antioxidantes"
+                  className="w-full h-[360px] md:h-[460px] object-contain bg-card p-6 hover-scale"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Bloco 3 */}
       <section className="py-16">
-        <div className="container mx-auto grid items-center gap-12 md:grid-cols-2">
-          <div className="rounded-xl overflow-hidden shadow-sm">
-            <img
-              src="/lovable-uploads/7b4ceade-aae9-4b29-8d6d-5c8b74bb2085.png"
-              alt="Latas Suívie Jabuticaba em bolsa de juta"
-              className="w-full h-[420px] md:h-[520px] object-cover"
-              loading="lazy"
-            />
-          </div>
-          <article>
-            <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              TRULY FRESH, HONESTLY HEALTHY.
-            </h2>
-            <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
-              Suivie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas. Todos os ingredientes 100% naturais nesta bebida de fruta são riquíssimos em antixoxidantes e naturalmente baixos em calorias e açúcar.
-            </p>
-            <div className="mt-6">
-              <Button asChild variant="brand" className="rounded-full px-6">
-                <a href="#produtos" aria-label="Ver produtos Suívie">Compre já</a>
-              </Button>
+        <div className="container mx-auto">
+          <div className="rounded-2xl border bg-gradient-to-br from-brand/5 via-background to-primary/5 p-6 md:p-10 shadow-sm animate-fade-in">
+            <div className="grid items-center gap-12 md:grid-cols-2">
+              <div className="rounded-xl overflow-hidden shadow-sm">
+                <img
+                  src="/lovable-uploads/7b4ceade-aae9-4b29-8d6d-5c8b74bb2085.png"
+                  alt="Latas Suívie Jabuticaba em bolsa de juta"
+                  className="w-full h-[420px] md:h-[520px] object-cover hover-scale"
+                  loading="lazy"
+                />
+              </div>
+              <article>
+                <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+                  TRULY FRESH, HONESTLY HEALTHY.
+                </h2>
+                <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
+                  Suivie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas. Todos os ingredientes 100% naturais nesta bebida de fruta são riquíssimos em antixoxidantes e naturalmente baixos em calorias e açúcar.
+                </p>
+                <div className="mt-6">
+                  <Button asChild variant="brand" className="rounded-full px-6 hover-scale">
+                    <a href="#produtos" aria-label="Ver produtos Suívie">Compre já</a>
+                  </Button>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
         </div>
       </section>
     </main>
