@@ -130,130 +130,110 @@ const Index = () => {
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((p) => (
               <Link key={p.id} to={`/product/${p.handle}`} className="group block">
-                <article className="overflow-hidden rounded-xl border bg-card shadow-soft hover:shadow-premium hover:-translate-y-2 transition-all duration-300 h-full">
-                  <div className="relative overflow-hidden rounded-t-xl">
+                <div className="surface radius-lg soft-transition hover:translate-y-[-2px] h-full" onClick={(e) => e.preventDefault()}>
+                  <div className="relative">
                     <AspectRatio ratio={1}>
                       <img
                         src={p.featuredImage?.url || "/placeholder.svg"}
                         alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
-                        className="h-full w-full object-contain bg-card p-6 group-hover:scale-110 transition-transform duration-500"
+                        className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg"
                         loading="lazy"
                       />
                     </AspectRatio>
                   </div>
-                  <div className="p-6 space-y-4 bg-gradient-to-br from-card to-card/95">
-                    <h3 className="font-semibold text-xl line-clamp-2 group-hover:text-brand transition-colors duration-300">{p.title}</h3>
-                    <p className="text-muted-foreground line-clamp-2 text-base">{p.description}</p>
-                    <div className="flex items-center justify-between pt-3 border-t border-border/50">
-                      <span className="text-xl font-bold text-brand bg-brand/10 px-3 py-1 rounded-full">
-                        {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
-                      </span>
+                  <div className="p-6 space-y-4">
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-lg line-clamp-2 text-foreground">{p.title}</h3>
+                      <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
                     </div>
-                    <div className="flex items-center gap-3 pt-3" onClick={(e) => e.preventDefault()}>
-                      <QuantityInput
-                        value={quantities[p.id] || 1}
-                        onChange={(newQty) => updateQuantity(p.id, newQty)}
-                        min={1}
-                        max={99}
-                        className="flex-shrink-0 bg-background/80"
-                      />
-                      <Button 
-                        size="sm" 
-                        variant="brand" 
-                        className="!rounded-xl flex items-center gap-2 flex-1 font-semibold shadow-soft hover:shadow-elevated" 
-                        onClick={(e) => addToCart(p, e)}
-                      >
-                        <AddToCartIcon size={16} />
-                        Adicionar
-                      </Button>
+                    <div className="space-y-4">
+                      <div className="text-xl font-bold text-foreground">
+                        {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <QuantityInput
+                          value={quantities[p.id] || 1}
+                          onChange={(newQty) => updateQuantity(p.id, newQty)}
+                          min={1}
+                          max={99}
+                          className="flex-shrink-0 w-32"
+                        />
+                        <Button 
+                          variant="brand" 
+                          className="flex items-center gap-2 flex-1" 
+                          onClick={(e) => addToCart(p, e)}
+                        >
+                          <AddToCartIcon className="h-4 w-4" />
+                          Adicionar ao Carrinho
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </article>
+                </div>
               </Link>
             ))}
           </div>
         )}
       </section>
 
-      {/* Seção Sobre */}
-      <section id="sobre" className="relative w-full py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-brand/5">
+      {/* About Section */}
+      <section id="sobre" className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div className="order-2 md:order-1">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-foreground">Primeira bebida naturalmente antioxidante do mundo</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Bem-vindo à Suívie Jabuticaba, a PRIMEIRA bebida naturalmente antioxidante do mundo. Combinamos a natureza Brasileira com a qualidade Suíça.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Seja para um pré-treino para melhorar as funções do organismo, ou pós a atividade física para recuperar eletrólitos e repor energia, essa bebida contém a magia da Jabuticaba.
+              </p>
+            </div>
+            <div className="relative">
               <img
                 src="/lovable-uploads/afd87f4b-f8d6-4012-8360-6bcc57920347.png"
                 alt="Consumidora apresentando a bebida Suívie Jabuticaba"
-                className="w-full h-[420px] md:h-[520px] object-cover rounded-xl shadow-elevated"
+                className="radius-lg"
                 loading="lazy"
               />
             </div>
-            <article className="order-1 md:order-2 space-y-6">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary leading-tight">
-                Primeira bebida naturalmente antioxidante do mundo
-              </h2>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Bem-vindo à Suívie Jabuticaba, a PRIMEIRA bebida naturalmente antioxidante do mundo. Combinamos a natureza Brasileira com a qualidade Suíça.
-              </p>
-              <p className="text-foreground/70 leading-relaxed">
-                Seja para um pré-treino para melhorar as funções do organismo, ou pós a atividade física para recuperar eletrólitos e repor energia, essa bebida contém a magia da Jabuticaba.
-              </p>
-            </article>
           </div>
         </div>
       </section>
 
-      {/* Seção Ingredientes */}
-      <section className="relative w-full py-16 md:py-24">
+      {/* Ingredients Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <article className="space-y-6">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-brand leading-tight">
-                O melhor do Brasil mantido em segredo, até agora...
-              </h2>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
-              </p>
-            </article>
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative md:order-2">
               <img
                 src="/lovable-uploads/13500a28-1b95-404c-b935-d463f3030c4e.png"
                 alt="Jabuticabas - super fruta rica em antioxidantes"
-                className="w-full h-[360px] md:h-[460px] object-contain"
+                className="radius-lg"
                 loading="lazy"
               />
+            </div>
+            <div className="space-y-6 md:order-1">
+              <h2 className="text-3xl font-bold text-foreground">O melhor do Brasil mantido em segredo, até agora...</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Seção CTA Final */}
-      <section className="relative w-full py-16 md:py-24 bg-gradient-to-br from-brand/5 via-background to-primary/5">
+      {/* Call to Action */}
+      <section className="py-20 bg-foreground">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div className="order-2 md:order-1">
-              <img
-                src="/lovable-uploads/7b4ceade-aae9-4b29-8d6d-5c8b74bb2085.png"
-                alt="Latas Suívie Jabuticaba em bolsa de juta"
-                className="w-full h-[420px] md:h-[520px] object-cover rounded-xl shadow-elevated"
-                loading="lazy"
-              />
-            </div>
-            <article className="order-1 md:order-2 space-y-6">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary leading-tight">
-                TRULY FRESH, HONESTLY HEALTHY.
-              </h2>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Suívie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas.
-              </p>
-              <p className="text-foreground/70 leading-relaxed">
-                Todos os ingredientes 100% naturais nesta bebida de fruta são riquíssimos em antioxidantes e naturalmente baixos em calorias e açúcar.
-              </p>
-              <div className="pt-4">
-                <Button asChild variant="brand" size="lg" className="!rounded-xl px-8 text-base font-semibold hover:scale-105 transition-all duration-300 shadow-elevated">
-                  <a href="#produtos" aria-label="Ver produtos Suívie">Experimente agora</a>
-                </Button>
-              </div>
-            </article>
+          <div className="text-center text-background space-y-6">
+            <h2 className="text-3xl font-bold">TRULY FRESH, HONESTLY HEALTHY.</h2>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+              Suívie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas.
+            </p>
+            <Button size="lg" variant="brand" className="text-lg px-8 py-3">
+              Experimente agora
+            </Button>
           </div>
         </div>
       </section>

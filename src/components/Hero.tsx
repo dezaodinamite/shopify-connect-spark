@@ -30,8 +30,8 @@ export default function Hero() {
             className="h-[70vh] w-full object-cover md:h-[80vh] lg:h-[85vh]"
           />
         </video>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Subtle dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 to-black/15" />
       </div>
 
 

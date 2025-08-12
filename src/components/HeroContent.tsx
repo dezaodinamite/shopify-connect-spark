@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Leaf, Zap, Sparkles } from "lucide-react";
+import KpiChips from "@/components/KpiChips";
 
 export default function HeroContent() {
   return (
@@ -19,41 +19,9 @@ export default function HeroContent() {
         </Button>
       </div>
       
-      {/* Modern KPIs Section */}
-      <div className="mt-12 w-full px-4">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="kpi-card group">
-              <div className="flex flex-col items-center space-y-3">
-                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Leaf className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-2xl md:text-3xl font-extrabold">100%</div>
-                <div className="text-sm md:text-base font-medium">Natural</div>
-              </div>
-            </div>
-            
-            <div className="kpi-card antioxidants group">
-              <div className="flex flex-col items-center space-y-3">
-                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-2xl md:text-3xl font-extrabold">Rica</div>
-                <div className="text-sm md:text-base font-medium">Antioxidantes</div>
-              </div>
-            </div>
-            
-            <div className="kpi-card unique group">
-              <div className="flex flex-col items-center space-y-3">
-                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-2xl md:text-3xl font-extrabold">Única</div>
-                <div className="text-sm md:text-base font-medium">No Mundo</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* KPIs Section - Minimalist Chips */}
+      <div className="mt-16 max-w-4xl mx-auto">
+        <KpiChips />
       </div>
     </div>
   );

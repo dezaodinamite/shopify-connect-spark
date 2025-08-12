@@ -29,18 +29,18 @@ export default function QuantityInput({
   };
 
   return (
-    <div className={`flex items-center border rounded-xl shadow-soft hover:shadow-elevated transition-all duration-300 ${className}`}>
+    <div className={`flex items-center border border-border radius-md soft-transition bg-background ${className}`}>
       <Button
         variant="ghost"
         size="icon"
         onClick={decrease}
         disabled={value <= min}
-        className="h-8 w-8 rounded-r-none border-r"
+        className="h-11 w-11 rounded-r-none border-r border-border min-w-[44px]"
         aria-label="Diminuir quantidade"
       >
-        <Minus className="h-3 w-3" />
+        <Minus className="h-4 w-4" />
       </Button>
-      <div className="flex-1 text-center px-3 py-1 min-w-[2.5rem] text-sm font-medium">
+      <div className="flex-1 text-center px-3 py-2 min-w-[2.5rem] text-sm font-medium bg-background">
         {value}
       </div>
       <Button
@@ -48,10 +48,10 @@ export default function QuantityInput({
         size="icon"
         onClick={increase}
         disabled={value >= max}
-        className="h-8 w-8 rounded-l-none border-l"
+        className="h-11 w-11 rounded-l-none border-l border-border min-w-[44px]"
         aria-label="Aumentar quantidade"
       >
-        <Plus className="h-3 w-3" />
+        <Plus className="h-4 w-4" />
       </Button>
     </div>
   );
