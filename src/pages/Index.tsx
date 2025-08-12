@@ -75,7 +75,7 @@ const Index = () => {
           aria-hidden="true"
         />
         <div className="relative container mx-auto flex h-[70vh] flex-col justify-center md:h-[85vh]">
-          <h1 className="max-w-3xl text-balance font-playfair text-4xl md:text-6xl font-extrabold tracking-tight text-foreground animate-fade-in">
+          <h1 className="max-w-3xl text-balance font-playfair text-4xl md:text-6xl font-extrabold tracking-tight text-[hsl(var(--hero-title))] animate-fade-in">
             Agora é a vez da Jabuticaba! O melhor do Brasil mantido em segredo, até agora...
           </h1>
           <p className="mt-4 max-w-2xl text-lg md:text-xl text-foreground/90 animate-fade-in">
