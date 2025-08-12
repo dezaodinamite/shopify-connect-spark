@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Background video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
-          className="h-[70vh] w-full object-cover md:h-[85vh]"
+          className="h-[90vh] w-full object-cover md:h-[100vh]"
           autoPlay
           muted
           loop
@@ -26,19 +26,14 @@ export default function Hero() {
           <img
             src={fallbackImage}
             alt="Fundo com splash de jabuticaba"
-            className="h-[70vh] w-full object-cover md:h-[85vh]"
+            className="h-[90vh] w-full object-cover md:h-[100vh]"
           />
         </video>
       </div>
 
-      {/* Overlay gradient for readability */}
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"
-        aria-hidden="true"
-      />
 
       {/* Content */}
-      <div className="relative container mx-auto flex h-[70vh] flex-col items-center justify-center text-center md:h-[85vh]">
+      <div className="relative container mx-auto flex h-[90vh] flex-col items-center justify-center text-center md:h-[100vh]">
         <h1 className="max-w-5xl text-balance font-playfair text-5xl md:text-7xl font-extrabold tracking-tight text-[hsl(var(--hero-title))] animate-fade-in">
           A SUPER FRUTA QUE O MUNDO DESEJA
         </h1>
@@ -56,18 +51,20 @@ export default function Hero() {
 
         {/* Highlights */}
         <div className="pointer-events-none absolute bottom-6 left-1/2 w-full -translate-x-1/2 px-4">
-          <div className="mx-auto grid max-w-4xl grid-cols-3 gap-4 rounded-full bg-background/40 p-4 backdrop-blur-md shadow-sm">
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
-              <div className="text-xs md:text-sm text-foreground/90">Natural</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Rica</div>
-              <div className="text-xs md:text-sm text-foreground/90">Antioxidantes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Única</div>
-              <div className="text-xs md:text-sm text-foreground/90">No Mundo</div>
+          <div className="mx-auto max-w-4xl rounded-full overflow-hidden shadow-sm">
+            <div className="grid grid-cols-3 gap-4 bg-background/40 p-4 backdrop-blur-md">
+              <div className="text-center">
+                <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
+                <div className="text-xs md:text-sm text-foreground/90">Natural</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Rica</div>
+                <div className="text-xs md:text-sm text-foreground/90">Antioxidantes</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Única</div>
+                <div className="text-xs md:text-sm text-foreground/90">No Mundo</div>
+              </div>
             </div>
           </div>
         </div>
