@@ -38,8 +38,12 @@ async function shopifyFetch(query: string, variables: Record<string, unknown> = 
 
   const json = await res.json()
   if (!res.ok) {
-    console.error('Shopify error:', json)
+    console.error('Shopify HTTP error:', json)
     throw new Error(`Shopify request failed: ${res.status}`)
+  }
+  if (json?.errors?.length) {
+    console.error('Shopify GraphQL errors:', json.errors)
+    throw new Error(json.errors.map((e: any) => e.message).join('; '))
   }
   return json
 }
@@ -122,8 +126,8 @@ Deno.serve(async (req) => {
     const addressVars = {
       cartId,
       deliveryAddress: {
-        countryCode: 'BR',
-        postalCode: postalCodeRaw,
+        country: 'BR',
+        zip: postalCodeRaw,
       },
     }
 
