@@ -4,10 +4,10 @@ import { supabase } from "@/integrations/supabase/client";
 const fallbackImage = "https://suivie.com.br/cdn/shop/files/Header_1.png?v=1697162644&width=1920";
 
 export default function Hero() {
-  // Public URL for the video in Supabase Storage (bucket: public-media, path: videos/suivie-hero-video.mp4)
+  // Public URL for the video in Supabase Storage (bucket: public-media, path: suivie-hero-video.mp4)
   const videoUrl = supabase.storage
     .from("public-media")
-    .getPublicUrl("videos/suivie-hero-video.mp4").data.publicUrl;
+    .getPublicUrl("suivie-hero-video.mp4").data.publicUrl;
 
   return (
     <section className="relative" aria-label="Hero Suívie Jabuticaba">
