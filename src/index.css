@@ -43,6 +43,17 @@ All colors MUST be HSL.
     --shipping-blue: 217 91% 60%;
     --shipping-orange: 25 95% 53%;
 
+    /* Modern spacing and effects */
+    --container-padding: 1rem;
+    --section-padding: 4rem 0;
+    --card-border-radius: 1rem;
+    --button-border-radius: 0.5rem;
+    
+    /* Smooth transitions */
+    --transition-fast: 150ms ease-out;
+    --transition-normal: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -110,6 +121,41 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Improved focus styles */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+
+  /* Skip to content link for accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-4 bg-brand text-brand-foreground px-4 py-2 rounded-md z-50 focus:top-4 transition-all;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

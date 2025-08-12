@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Background video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
-          className="h-[80vh] w-full object-cover md:h-[90vh]"
+          className="h-[70vh] w-full object-cover md:h-[80vh] lg:h-[85vh]"
           autoPlay
           muted
           loop
@@ -27,14 +27,16 @@ export default function Hero() {
           <img
             src={fallbackImage}
             alt="Fundo com splash de jabuticaba"
-            className="h-[80vh] w-full object-cover md:h-[90vh]"
+            className="h-[70vh] w-full object-cover md:h-[80vh] lg:h-[85vh]"
           />
         </video>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
 
       {/* Content */}
-      <div className="relative container mx-auto flex h-[80vh] flex-col items-center justify-center text-center md:h-[90vh]">
+      <div className="relative container mx-auto flex h-[70vh] flex-col items-center justify-center text-center md:h-[80vh] lg:h-[85vh] px-4">
         <HeroContent />
       </div>
     </section>
