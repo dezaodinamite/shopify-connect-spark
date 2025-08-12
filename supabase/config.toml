@@ -1,1 +1,7 @@
 project_id = "xruwmyxulgqjcyiwzwis"
+
+[functions.shopify-products]
+verify_jwt = false
+
+[functions.shopify-checkout]
+verify_jwt = false
