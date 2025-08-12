@@ -160,13 +160,13 @@ export default function ProductPage() {
 
               <div className="mt-3 flex items-center gap-3">
                 <p className="text-2xl font-semibold">{priceText}</p>
-                <Badge variant="secondary">{selectedVariantAvailable ? "Em estoque" : "Indisponível"}</Badge>
+                <Badge variant="secondary" className="rounded-full text-white">{selectedVariantAvailable ? "Em estoque" : "Indisponível"}</Badge>
               </div>
 
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <Badge className="bg-[hsl(var(--shipping-green))] text-white hover:bg-[hsl(var(--shipping-green))]/90 rounded-2xl font-medium">Envio Full Armazenaí</Badge>
-                <Badge className="bg-[hsl(var(--shipping-blue))] text-white hover:bg-[hsl(var(--shipping-blue))]/90 rounded-2xl font-medium">Frete Same-Day Disponível</Badge>
-                <Badge className="bg-[hsl(var(--shipping-orange))] text-white hover:bg-[hsl(var(--shipping-orange))]/90 rounded-2xl font-medium">Frete Next-Day Disponível</Badge>
+                <Badge className="bg-[hsl(var(--shipping-green))] text-white hover:bg-[hsl(var(--shipping-green))]/90 rounded-full font-medium">Envio Full Armazenaí</Badge>
+                <Badge className="bg-[hsl(var(--shipping-blue))] text-white hover:bg-[hsl(var(--shipping-blue))]/90 rounded-full font-medium">Frete Same-Day Disponível</Badge>
+                <Badge className="bg-[hsl(var(--shipping-orange))] text-white hover:bg-[hsl(var(--shipping-orange))]/90 rounded-full font-medium">Frete Next-Day Disponível</Badge>
               </div>
 
               {product.variants?.nodes && product.variants.nodes.length > 1 && (
