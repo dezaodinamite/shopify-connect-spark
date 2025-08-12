@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -24,8 +25,9 @@ const App = () => (
           <Route path="/cart" element={<Cart />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

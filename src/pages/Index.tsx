@@ -38,10 +38,31 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="container mx-auto py-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6">Suívie Jabuticaba – Loja Oficial</h1>
-        <p className="text-muted-foreground mb-10">Descubra nossos produtos e compre com segurança.</p>
+      <section className="relative">
+        <img
+          src="https://suivie.com.br/cdn/shop/files/Header_1.png?v=1697162644&width=1920"
+          alt="Suívie Jabuticaba - hero com latas e jabuticabas"
+          className="absolute inset-0 h-[48vh] w-full object-cover md:h-[60vh]"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" aria-hidden="true" />
+        <div className="relative container mx-auto flex h-[48vh] flex-col justify-center md:h-[60vh]">
+          <h1 className="text-3xl md:text-5xl font-bold max-w-2xl text-foreground">
+            Suívie Jabuticaba – Loja Oficial
+          </h1>
+          <p className="text-muted-foreground mt-3 max-w-xl">
+            Descubra nossas bebidas naturalmente antioxidantes. Direto da fazenda até você.
+          </p>
+          <div className="mt-6">
+            <Button asChild size="lg">
+              <a href="#produtos">Compre já</a>
+            </Button>
+          </div>
+        </div>
+      </section>
 
+      <section id="produtos" className="container mx-auto py-10">
+        <h2 className="sr-only">Produtos</h2>
         {loading ? (
           <p className="text-muted-foreground">Carregando produtos…</p>
         ) : (
@@ -57,7 +78,7 @@ const Index = () => {
                   />
                 )}
                 <div className="p-4">
-                  <h2 className="font-semibold mb-2">{p.title}</h2>
+                  <h3 className="font-semibold mb-2">{p.title}</h3>
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{p.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">

@@ -5,18 +5,20 @@ import { useCart } from "@/hooks/useCart";
 export default function Header() {
   const { count } = useCart();
   return (
-    <header className="border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex items-center justify-between py-4">
-        <Link to="/" className="font-semibold text-xl tracking-tight">
-          Suívie
+    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex items-center justify-between py-3">
+        <Link to="/" className="flex items-center gap-2" aria-label="Página inicial Suívie">
+          <span className="font-semibold text-2xl tracking-tight text-brand">Suívie</span>
         </Link>
-        <nav className="flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
-          <Link to="/cart" className="inline-flex items-center gap-2 text-sm">
-            <ShoppingCart className="size-4" />
-            Carrinho ({count})
-          </Link>
+          <a href="#produtos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Produtos</a>
         </nav>
+        <Link to="/cart" className="inline-flex items-center gap-2 text-sm" aria-label={`Abrir carrinho com ${count} itens`}>
+          <ShoppingCart className="size-5" />
+          <span className="hidden sm:inline">Carrinho</span>
+          <span className="ml-1 rounded-full bg-brand px-2 py-0.5 text-[11px] text-brand-foreground">{count}</span>
+        </Link>
       </div>
     </header>
   );
