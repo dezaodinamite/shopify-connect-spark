@@ -117,7 +117,7 @@ const Index = () => {
                     <span className="text-base font-semibold">
                       {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
                     </span>
-                    <Button asChild size="sm">
+                    <Button asChild size="sm" variant="brand">
                       <Link to={`/product/${p.handle}`} aria-label={`Ver detalhes de ${p.title}`}>Ver produto</Link>
                     </Button>
                   </div>
