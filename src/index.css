@@ -127,6 +127,7 @@ All colors MUST be HSL.
   /* Smooth scrolling for anchor links */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
   }
 
   /* Improved focus styles */

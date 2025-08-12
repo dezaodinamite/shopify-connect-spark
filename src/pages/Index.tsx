@@ -83,30 +83,32 @@ const Index = () => {
         ) : (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((p) => (
-              <article key={p.id} className="group overflow-hidden rounded-xl border bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="relative overflow-hidden">
-                  <AspectRatio ratio={1}>
-                    <img
-                      src={p.featuredImage?.url || "/placeholder.svg"}
-                      alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
-                      className="h-full w-full object-contain bg-card p-6 group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </AspectRatio>
-                </div>
-                <div className="p-4 space-y-3">
-                  <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-brand transition-colors">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{p.description}</p>
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="text-lg font-bold text-brand">
-                      {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
-                    </span>
-                    <Button asChild size="sm" variant="brand" className="rounded-full">
-                      <Link to={`/product/${p.handle}`} aria-label={`Ver detalhes de ${p.title}`}>Ver produto</Link>
-                    </Button>
+              <Link key={p.id} to={`/product/${p.handle}`} className="group">
+                <article className="overflow-hidden rounded-xl border bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full cursor-pointer">
+                  <div className="relative overflow-hidden">
+                    <AspectRatio ratio={1}>
+                      <img
+                        src={p.featuredImage?.url || "/placeholder.svg"}
+                        alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
+                        className="h-full w-full object-contain bg-card p-6 group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </AspectRatio>
                   </div>
-                </div>
-              </article>
+                  <div className="p-4 space-y-3">
+                    <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-brand transition-colors">{p.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{p.description}</p>
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="text-lg font-bold text-brand">
+                        {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
+                      </span>
+                      <Button size="sm" variant="brand" className="rounded-full" onClick={(e) => e.preventDefault()}>
+                        Ver produto
+                      </Button>
+                    </div>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         )}

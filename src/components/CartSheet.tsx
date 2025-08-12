@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
+import QuantityInput from "@/components/QuantityInput";
 
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);
@@ -41,13 +42,12 @@ export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
                   <div className="truncate font-medium">{i.title}</div>
                   <div className="text-sm text-muted-foreground">{currency(i.priceAmount, i.currencyCode)}</div>
                 </div>
-                <input
-                  aria-label={`Quantidade de ${i.title}`}
-                  type="number"
-                  min={1}
+                <QuantityInput
                   value={i.quantity}
-                  onChange={(e) => setQuantity(i.merchandiseId, Math.max(1, Number(e.target.value)))}
-                  className="w-16 border rounded h-9 px-2 bg-background"
+                  onChange={(newQty) => setQuantity(i.merchandiseId, newQty)}
+                  min={1}
+                  max={99}
+                  className="w-auto"
                 />
                 <Button variant="ghost" onClick={() => removeItem(i.merchandiseId)}>Remover</Button>
               </div>

@@ -8,6 +8,8 @@ import { useCart } from "@/hooks/useCart";
 import { ProductImageZoom } from "@/components/ProductImageZoom";
 import { toast } from "@/hooks/use-toast";
 import { ShippingCalculator } from "@/components/ShippingCalculator";
+import QuantityInput from "@/components/QuantityInput";
+import AddToCartIcon from "@/components/AddToCartIcon";
 
 interface Product {
   id: string;
@@ -189,15 +191,15 @@ export default function ProductPage() {
               )}
 
               <div className="mt-5 flex items-center gap-3">
-                <input
-                  type="number"
-                  min={1}
+                <QuantityInput
                   value={qty}
-                  onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
-                  className="w-24 border rounded h-10 px-3 bg-background"
-                  aria-label="Quantidade"
+                  onChange={setQty}
+                  min={1}
+                  max={99}
+                  className="w-auto"
                 />
-                <Button onClick={addToCart} variant="brand" disabled={!selectedVariantAvailable}>
+                <Button onClick={addToCart} variant="brand" disabled={!selectedVariantAvailable} className="flex items-center gap-2">
+                  <AddToCartIcon size={16} />
                   Adicionar ao carrinho
                 </Button>
               </div>
