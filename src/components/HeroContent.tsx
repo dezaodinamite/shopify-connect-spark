@@ -21,7 +21,7 @@ export default function HeroContent() {
       {/* Highlights moved here for better organization */}
       <div className="mt-12 w-full px-4">
         <div className="mx-auto max-w-4xl rounded-3xl overflow-hidden shadow-lg">
-          <div className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-md p-6 rounded-full">
+          <div className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-md p-6 rounded-[2rem]">
             <div className="text-center">
               <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
               <div className="text-xs md:text-sm text-brand-foreground">Natural</div>
