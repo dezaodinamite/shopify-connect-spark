@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import HeroContent from "@/components/HeroContent";
-import HeroHighlights from "@/components/HeroHighlights";
 
 const fallbackImage = "https://suivie.com.br/cdn/shop/files/Header_1.png?v=1697162644&width=1920";
 
@@ -37,7 +36,6 @@ export default function Hero() {
       {/* Content */}
       <div className="relative container mx-auto flex h-[80vh] flex-col items-center justify-center text-center md:h-[90vh]">
         <HeroContent />
-        <HeroHighlights />
       </div>
     </section>
   );

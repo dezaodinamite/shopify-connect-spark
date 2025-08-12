@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroContent() {
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex flex-col items-center justify-center text-center relative">
       <h1 className="max-w-5xl text-balance font-playfair text-5xl md:text-7xl font-extrabold tracking-tight text-[hsl(var(--hero-title))] animate-fade-in">
         A SUPER FRUTA QUE O MUNDO DESEJA
       </h1>
@@ -16,6 +16,26 @@ export default function HeroContent() {
         <Button asChild size="lg" variant="outline" className="rounded-full px-8 py-6 hover-scale">
           <a href="#sobre" aria-label="Conhecer a Jabuticaba">Conhecer a Jabuticaba</a>
         </Button>
+      </div>
+      
+      {/* Highlights moved here for better organization */}
+      <div className="mt-12 w-full px-4">
+        <div className="mx-auto max-w-4xl rounded-3xl overflow-hidden shadow-lg">
+          <div className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-md p-6 rounded-3xl">
+            <div className="text-center">
+              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
+              <div className="text-xs md:text-sm text-foreground/90">Natural</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Rica</div>
+              <div className="text-xs md:text-sm text-foreground/90">Antioxidantes</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Única</div>
+              <div className="text-xs md:text-sm text-foreground/90">No Mundo</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
