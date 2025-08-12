@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Hero from "@/components/Hero";
 
 interface ProductNode {
   id: string;
@@ -63,31 +64,9 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="relative">
-        <img
-          src="https://suivie.com.br/cdn/shop/files/Header_1.png?v=1697162644&width=1920"
-          alt="Suívie Jabuticaba - hero com latas e jabuticabas"
-          className="absolute inset-0 h-[70vh] w-full object-cover md:h-[85vh]"
-          loading="lazy"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"
-          aria-hidden="true"
-        />
-        <div className="relative container mx-auto flex h-[70vh] flex-col justify-center md:h-[85vh]">
-          <h1 className="max-w-3xl text-balance font-playfair text-4xl md:text-6xl font-extrabold tracking-tight text-[hsl(var(--hero-title))] animate-fade-in">
-            Agora é a vez da Jabuticaba! O melhor do Brasil mantido em segredo, até agora...
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-foreground/90 animate-fade-in">
-            Direto da fazenda até você - simples assim!
-          </p>
-          <div className="mt-8">
-            <Button asChild size="lg" variant="brand" className="rounded-full px-8 py-6 hover-scale shadow-md">
-              <a href="#produtos" aria-label="Ir para a seção de produtos Suívie">Compre já</a>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <header>
+        <Hero />
+      </header>
 
       <section id="produtos" className="container mx-auto py-14">
         <header className="mb-8">
