@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Background video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
-          className="h-[90vh] w-full object-cover md:h-[100vh]"
+          className="h-[80vh] w-full object-cover md:h-[90vh]"
           autoPlay
           muted
           loop
@@ -26,18 +26,18 @@ export default function Hero() {
           <img
             src={fallbackImage}
             alt="Fundo com splash de jabuticaba"
-            className="h-[90vh] w-full object-cover md:h-[100vh]"
+            className="h-[80vh] w-full object-cover md:h-[90vh]"
           />
         </video>
       </div>
 
 
       {/* Content */}
-      <div className="relative container mx-auto flex h-[90vh] flex-col items-center justify-center text-center md:h-[100vh]">
+      <div className="relative container mx-auto flex h-[80vh] flex-col items-center justify-center text-center md:h-[90vh]">
         <h1 className="max-w-5xl text-balance font-playfair text-5xl md:text-7xl font-extrabold tracking-tight text-[hsl(var(--hero-title))] animate-fade-in">
           A SUPER FRUTA QUE O MUNDO DESEJA
         </h1>
-        <p className="mt-4 max-w-2xl text-lg md:text-xl text-foreground/90 animate-fade-in">
+        <p className="mt-4 max-w-2xl text-lg md:text-xl text-white animate-fade-in">
           Descubra a <strong>jabuticaba</strong>, a fruta brasileira mais rica em antioxidantes que existe. Mais que mirtilos, uvas e até mesmo açaí.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-in">
