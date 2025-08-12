@@ -123,6 +123,15 @@ Deno.serve(async (req) => {
       }
     `
 
+    const viaCepRes = await fetch(`https://viacep.com.br/ws/${postalCodeRaw}/json/`).catch(() => null)
+    let provinceCode: string | undefined = undefined
+    let city: string | undefined = undefined
+    if (viaCepRes && viaCepRes.ok) {
+      const via = await viaCepRes.json().catch(() => null)
+      provinceCode = via?.uf
+      city = via?.localidade
+    }
+
     const addressVars = {
       cartId,
       buyerIdentity: {
@@ -132,6 +141,9 @@ Deno.serve(async (req) => {
             deliveryAddress: {
               country: 'BR',
               zip: postalCodeRaw,
+              provinceCode,
+              city,
+              address1: 'Auto via CEP',
             },
           },
         ],
