@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCart } from "@/hooks/useCart";
+import { ProductImageZoom } from "@/components/ProductImageZoom";
 
 interface Product {
   id: string;
@@ -127,13 +127,7 @@ export default function ProductPage() {
           <article className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
               {activeImage && (
-                <AspectRatio ratio={1}>
-                  <img
-                    src={activeImage}
-                    alt={product.featuredImage?.altText || product.title}
-                    className="w-full h-full rounded-xl object-contain bg-card p-6 shadow"
-                  />
-                </AspectRatio>
+                <ProductImageZoom src={activeImage} alt={product.featuredImage?.altText || product.title} />
               )}
 
               {images.length > 1 && (
@@ -162,6 +156,12 @@ export default function ProductPage() {
               <div className="mt-3 flex items-center gap-3">
                 <p className="text-2xl font-semibold">{priceText}</p>
                 <Badge variant="secondary">{selectedVariantAvailable ? "Em estoque" : "Indisponível"}</Badge>
+              </div>
+
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <Badge variant="secondary">Envio Full Armazenaí</Badge>
+                <Badge variant="secondary">Frete Same-Day Disponível</Badge>
+                <Badge variant="secondary">Frete Next-Day Disponível</Badge>
               </div>
 
               {product.variants?.nodes && product.variants.nodes.length > 1 && (
