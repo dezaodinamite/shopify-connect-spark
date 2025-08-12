@@ -132,11 +132,11 @@ const Index = () => {
       <section id="sobre" className="relative w-full py-16 bg-gradient-to-br from-primary/5 via-background to-brand/5">
         <div className="container mx-auto">
           <div className="grid items-center gap-12 md:grid-cols-2 animate-fade-in">
-            <div className="rounded-xl overflow-hidden shadow-sm">
+            <div>
               <img
                 src="/lovable-uploads/80aa8876-94e5-4233-960f-f1a850dba0e2.png"
                 alt="Consumidora apresentando a bebida Suívie Jabuticaba"
-                className="w-full h-[420px] md:h-[520px] object-cover hover-scale"
+                className="w-full h-[420px] md:h-[520px] object-cover"
                 loading="lazy"
               />
             </div>
@@ -164,11 +164,11 @@ const Index = () => {
                 Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
               </p>
             </article>
-            <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm">
+            <div className="order-1 md:order-2">
               <img
                 src="/lovable-uploads/13500a28-1b95-404c-b935-d463f3030c4e.png"
                 alt="Jabuticabas - super fruta rica em antioxidantes"
-                className="w-full h-[360px] md:h-[460px] object-contain hover-scale"
+                className="w-full h-[360px] md:h-[460px] object-contain"
                 loading="lazy"
               />
             </div>
@@ -180,11 +180,11 @@ const Index = () => {
       <section className="relative w-full py-16 bg-gradient-to-br from-brand/5 via-background to-primary/5">
         <div className="container mx-auto">
           <div className="grid items-center gap-12 md:grid-cols-2 animate-fade-in">
-            <div className="rounded-xl overflow-hidden shadow-sm">
+            <div>
               <img
                 src="/lovable-uploads/7b4ceade-aae9-4b29-8d6d-5c8b74bb2085.png"
                 alt="Latas Suívie Jabuticaba em bolsa de juta"
-                className="w-full h-[420px] md:h-[520px] object-cover hover-scale"
+                className="w-full h-[420px] md:h-[520px] object-cover"
                 loading="lazy"
               />
             </div>
