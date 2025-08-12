@@ -24,15 +24,15 @@ export default function HeroContent() {
           <div className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-md p-6 rounded-full">
             <div className="text-center">
               <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
-              <div className="text-xs md:text-sm !text-white">Natural</div>
+              <div className="text-xs md:text-sm text-brand-foreground">Natural</div>
             </div>
             <div className="text-center">
               <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Rica</div>
-              <div className="text-xs md:text-sm !text-white">Antioxidantes</div>
+              <div className="text-xs md:text-sm text-brand-foreground">Antioxidantes</div>
             </div>
             <div className="text-center">
               <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Única</div>
-              <div className="text-xs md:text-sm !text-white">No Mundo</div>
+              <div className="text-xs md:text-sm text-brand-foreground">No Mundo</div>
             </div>
           </div>
         </div>
