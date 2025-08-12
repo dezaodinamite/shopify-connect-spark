@@ -40,7 +40,7 @@ export default function Header() {
             <img 
               src="/lovable-uploads/b7ee09ad-b44f-44d1-9697-fc027b37c3f3.png" 
               alt="Suívie Logo" 
-              className="h-8 w-auto"
+              className="h-7 w-auto md:h-8"
             />
           </Link>
 
@@ -48,7 +48,7 @@ export default function Header() {
           <div className="md:hidden justify-self-end">
             <CartSheetTrigger>
               <Button variant="ghost" size="icon" className="relative h-11 w-11">
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-5 w-5 text-foreground" strokeWidth={1.5} />
                 {count > 0 && (
                   <span 
                     className={`absolute -top-1 -right-1 bg-brand text-brand-foreground text-xs radius-pill h-5 w-5 flex items-center justify-center soft-transition min-w-[20px] ${
@@ -99,7 +99,7 @@ export default function Header() {
 
             <CartSheetTrigger>
               <Button variant="ghost" size="icon" className="relative h-11 w-11">
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-5 w-5 text-foreground" strokeWidth={1.5} />
                 {count > 0 && (
                   <span 
                     className={`absolute -top-1 -right-1 bg-brand text-brand-foreground text-xs radius-pill h-5 w-5 flex items-center justify-center soft-transition min-w-[20px] ${

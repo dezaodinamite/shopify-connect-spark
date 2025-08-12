@@ -20,13 +20,13 @@ const kpis = [
 
 export default function KpiChips() {
   return (
-    <div className="flex gap-3 overflow-x-auto pb-2 sm:justify-center snap-x snap-mandatory">
+    <div className="flex flex-wrap justify-center gap-3 pb-2 sm:justify-center">
       {kpis.map((kpi, index) => {
         const IconComponent = kpi.icon;
         return (
           <div
             key={index}
-            className="kpi-chip flex-shrink-0 snap-center"
+            className="kpi-chip flex-shrink-0 radius-pill px-3 py-2 backdrop-blur-md bg-background/40 border border-border/50 shadow-sm"
           >
             <IconComponent 
               className="h-5 w-5 text-muted-foreground" 
