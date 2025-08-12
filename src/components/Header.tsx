@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/useCart";
+import { CartSheetTrigger } from "@/components/CartSheet";
 
 export default function Header() {
   const { count } = useCart();
@@ -14,11 +15,13 @@ export default function Header() {
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
           <a href="#produtos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Produtos</a>
         </nav>
-        <Link to="/cart" className="inline-flex items-center gap-2 text-sm" aria-label={`Abrir carrinho com ${count} itens`}>
-          <ShoppingCart className="size-5" />
-          <span className="hidden sm:inline">Carrinho</span>
-          <span className="ml-1 rounded-full bg-brand px-2 py-0.5 text-[11px] text-brand-foreground">{count}</span>
-        </Link>
+        <CartSheetTrigger>
+          <button className="inline-flex items-center gap-2 text-sm" aria-label={`Abrir carrinho com ${count} itens`}>
+            <ShoppingCart className="size-5" />
+            <span className="hidden sm:inline">Carrinho</span>
+            <span className="ml-1 rounded-full bg-brand px-2 py-0.5 text-[11px] text-brand-foreground">{count}</span>
+          </button>
+        </CartSheetTrigger>
       </div>
     </header>
   );
