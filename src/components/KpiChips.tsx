@@ -8,7 +8,7 @@ const kpis = [
   },
   {
     icon: Zap,
-    title: "Rica Antioxidantes", 
+    title: "Rica em Antioxidantes", 
     subtitle: "Super nutrição",
   },
   {

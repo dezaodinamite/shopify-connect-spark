@@ -118,7 +118,7 @@ const Index = () => {
       <section id="produtos" className="container mx-auto py-16 px-4 md:py-20">
         <header className="mb-12 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight text-primary mb-4">Nossos Produtos</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Descobra a linha completa Suívie Jabuticaba - sabor autêntico e qualidade premium</p>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Descubra a linha completa Suívie Jabuticaba - sabor autêntico e qualidade premium</p>
         </header>
         {loading ? (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,7 +130,7 @@ const Index = () => {
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((p) => (
               <Link key={p.id} to={`/product/${p.handle}`} className="group block">
-                <div className="surface radius-lg soft-transition hover:translate-y-[-2px] h-full" onClick={(e) => e.preventDefault()}>
+                <div className="surface radius-lg soft-transition hover:translate-y-[-2px] h-full">
                   <div className="relative">
                     <AspectRatio ratio={1}>
                       <img

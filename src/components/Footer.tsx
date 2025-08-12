@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </div>
           <nav aria-label="Links rápidos" className="grid gap-2 text-sm">
-            <span className="font-medium">Quick Links</span>
+            <span className="font-medium">Links rápidos</span>
             <Link to="/" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Home</Link>
             <a href="#produtos" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Produtos</a>
             <Link to="/cart" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Carrinho</Link>

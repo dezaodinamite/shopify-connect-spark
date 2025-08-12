@@ -13,7 +13,6 @@ export default function Header() {
   const { theme, setTheme } = useTheme();
   const prev = useRef(count);
   const [pop, setPop] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const increased = count > prev.current;
@@ -25,20 +24,9 @@ export default function Header() {
     }
   }, [count]);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header 
-      className={`sticky top-0 z-50 w-full soft-transition safe-top ${
-        scrolled 
-          ? 'glass-header' 
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="sticky top-0 z-50 w-full soft-transition safe-top glass-header">
+
       <div className="container mx-auto px-4">
         {/* Mobile Layout: Menu | Logo | Cart */}
         <div className="grid grid-cols-[44px_1fr_44px] md:flex md:justify-between items-center h-16 gap-4">
