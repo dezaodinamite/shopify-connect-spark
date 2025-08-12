@@ -56,7 +56,7 @@ export default function Hero() {
 
         {/* Highlights */}
         <div className="pointer-events-none absolute bottom-6 left-1/2 w-full -translate-x-1/2 px-4">
-          <div className="mx-auto grid max-w-4xl grid-cols-3 gap-4 rounded-2xl bg-background/40 p-4 backdrop-blur-md shadow-sm">
+          <div className="mx-auto grid max-w-4xl grid-cols-3 gap-4 rounded-full bg-background/40 p-4 backdrop-blur-md shadow-sm">
             <div className="text-center">
               <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
               <div className="text-xs md:text-sm text-foreground/90">Natural</div>
