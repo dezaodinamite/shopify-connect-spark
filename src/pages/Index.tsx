@@ -166,9 +166,9 @@ const Index = () => {
             </article>
             <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm">
               <img
-                src="/lovable-uploads/b8d6a9bd-1958-4984-8b85-ae1fcb5b9b7d.png"
+                src="/lovable-uploads/13500a28-1b95-404c-b935-d463f3030c4e.png"
                 alt="Jabuticabas - super fruta rica em antioxidantes"
-                className="w-full h-[360px] md:h-[460px] object-contain bg-card p-6 hover-scale"
+                className="w-full h-[360px] md:h-[460px] object-contain hover-scale"
                 loading="lazy"
               />
             </div>
