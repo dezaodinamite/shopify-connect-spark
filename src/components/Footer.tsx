@@ -6,7 +6,11 @@ export default function Footer() {
       <div className="container mx-auto py-10">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <h2 className="text-lg font-semibold tracking-tight">Suívie Jabuticaba</h2>
+            <img 
+              src="/lovable-uploads/6ec130e7-47e5-445d-86ce-4b37149d14a4.png" 
+              alt="Suívie Jabuticaba Logo" 
+              className="h-8 w-auto"
+            />
             <p className="mt-2 text-sm opacity-90">
               Bebidas naturalmente antioxidantes, direto da fazenda até você.
             </p>
