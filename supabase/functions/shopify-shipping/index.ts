@@ -102,8 +102,8 @@ Deno.serve(async (req) => {
 
     // 3) Update delivery address with CEP
     const addressMutation = `#graphql
-      mutation CartDeliveryAddressUpdate($cartId: ID!, $deliveryAddress: MailingAddressInput!) {
-        cartDeliveryAddressUpdate(cartId: $cartId, deliveryAddress: $deliveryAddress) {
+      mutation CartDeliveryAddressUpdateV2($cartId: ID!, $deliveryAddress: CartDeliveryAddressInput!) {
+        cartDeliveryAddressUpdateV2(cartId: $cartId, deliveryAddress: $deliveryAddress) {
           cart {
             id
             deliveryGroups(first: 10) {
@@ -132,9 +132,9 @@ Deno.serve(async (req) => {
     }
 
     const addrRes = await shopifyFetch(addressMutation, addressVars)
-    const updateData = addrRes?.data?.cartDeliveryAddressUpdate
+    const updateData = addrRes?.data?.cartDeliveryAddressUpdateV2
     if (!updateData?.cart) {
-      console.error('cartDeliveryAddressUpdate userErrors:', updateData?.userErrors)
+      console.error('cartDeliveryAddressUpdateV2 userErrors:', updateData?.userErrors)
       throw new Error('Falha ao atualizar endereço de entrega')
     }
 
