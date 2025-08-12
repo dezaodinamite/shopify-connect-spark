@@ -166,7 +166,7 @@ const Index = () => {
             </article>
             <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-sm">
               <img
-                src="/lovable-uploads/d3257490-ff08-4377-a55f-214e70c3964b.png"
+                src="/lovable-uploads/b8d6a9bd-1958-4984-8b85-ae1fcb5b9b7d.png"
                 alt="Jabuticabas - super fruta rica em antioxidantes"
                 className="w-full h-[360px] md:h-[460px] object-contain bg-card p-6 hover-scale"
                 loading="lazy"
