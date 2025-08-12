@@ -4,6 +4,7 @@ import { useCart } from "@/hooks/useCart";
 import { CartSheetTrigger } from "@/components/CartSheet";
 import { useEffect, useRef, useState } from "react";
 
+
 export default function Header() {
   const { count } = useCart();
   const prev = useRef(count);
@@ -20,9 +21,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex items-center justify-between py-3">
+      <div className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2" aria-label="Página inicial Suívie">
-          <span className="font-semibold text-2xl tracking-tight text-brand">Suívie</span>
+          <img src="/lovable-uploads/77a04651-2e18-4635-8c13-7797db38a6a7.png" alt="Suívie Jabuticaba" className="h-8 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
