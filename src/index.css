@@ -39,6 +39,9 @@ All colors MUST be HSL.
     --brand: 340 77% 36%;
     --brand-foreground: 0 0% 100%;
     --hero-title: 41 100% 57%;
+    --shipping-green: 122 39% 49%;
+    --shipping-blue: 217 91% 60%;
+    --shipping-orange: 25 95% 53%;
 
     --radius: 0.5rem;
 
