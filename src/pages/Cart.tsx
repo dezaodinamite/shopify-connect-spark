@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
+import { ShippingCalculator } from "@/components/ShippingCalculator";
 
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);
@@ -51,8 +52,14 @@ export default function CartPage() {
               <div className="text-lg font-semibold">Total</div>
               <div className="text-lg font-semibold">{currency(totalAmount, items[0]?.currencyCode || "BRL")}</div>
             </div>
-            <div className="flex justify-end">
-              <Button onClick={checkout}>Finalizar compra</Button>
+            <div className="grid gap-3">
+              <div className="border rounded p-4">
+                <h2 className="font-medium mb-2">Calcular frete</h2>
+                <ShippingCalculator lines={linesForCheckout} />
+              </div>
+              <div className="flex justify-end">
+                <Button onClick={checkout}>Finalizar compra</Button>
+              </div>
             </div>
           </div>
         )}

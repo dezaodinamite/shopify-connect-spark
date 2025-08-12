@@ -5,3 +5,7 @@ verify_jwt = false
 
 [functions.shopify-checkout]
 verify_jwt = false
+
+[functions.shopify-shipping]
+verify_jwt = false
+

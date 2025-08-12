@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useCart } from "@/hooks/useCart";
 import { ProductImageZoom } from "@/components/ProductImageZoom";
 import { toast } from "@/hooks/use-toast";
+import { ShippingCalculator } from "@/components/ShippingCalculator";
 
 interface Product {
   id: string;
@@ -199,6 +200,10 @@ export default function ProductPage() {
                 <Button onClick={addToCart} variant="brand" disabled={!selectedVariantAvailable}>
                   Adicionar ao carrinho
                 </Button>
+              </div>
+
+              <div className="mt-4">
+                <ShippingCalculator lines={selectedVariant ? [{ merchandiseId: selectedVariant, quantity: qty }] : []} />
               </div>
 
               <div className="prose prose-sm dark:prose-invert max-w-none mt-8" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || "" }} />
