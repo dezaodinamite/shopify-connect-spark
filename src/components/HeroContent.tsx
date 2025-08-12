@@ -10,10 +10,10 @@ export default function HeroContent() {
         Descubra a <strong>jabuticaba</strong>, a fruta brasileira mais rica em antioxidantes que existe. Mais que mirtilos, uvas e até mesmo açaí.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-in">
-        <Button asChild size="lg" variant="brand" className="rounded-full px-8 py-6 hover-scale shadow-md">
+        <Button asChild size="lg" variant="brand" className="rounded-full px-10 py-6 hover-scale shadow-md">
           <a href="#produtos" aria-label="Experimentar agora">Experimentar Agora</a>
         </Button>
-        <Button asChild size="lg" variant="outline" className="rounded-full px-8 py-6 hover-scale">
+        <Button asChild size="lg" variant="outline" className="rounded-full px-10 py-6 hover-scale">
           <a href="#sobre" aria-label="Conhecer a Jabuticaba">Conhecer a Jabuticaba</a>
         </Button>
       </div>
