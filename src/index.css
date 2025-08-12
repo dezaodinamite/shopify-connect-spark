@@ -215,6 +215,7 @@ All colors MUST be HSL.
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid hsl(var(--border));
+    min-height: 64px;
   }
 
   .dark .glass-header {
@@ -236,9 +237,32 @@ html {
   scroll-behavior: smooth; 
 }
 
-/* Ensure radius inheritance - no border-radius resets */
-button, a, input, select, textarea, .card, .chip, .quantity-stepper { 
-  border-radius: inherit; 
+/* Global rounded defaults - low specificity, components can override */
+@layer base {
+  div, section, article, footer,
+  a, span, .card, .chip, .badge, .modal, .dropdown { 
+    border-radius: var(--radius-md); 
+  }
+
+  button, .btn { 
+    border-radius: var(--radius-pill); 
+    min-height: 44px; 
+    transition: all var(--dur) var(--ease); 
+  }
+  
+  input, select, textarea { 
+    border-radius: var(--radius-sm); 
+    min-height: 44px; 
+  }
+
+  button:hover, .card:hover { 
+    box-shadow: var(--shadow-1); 
+  }
+  
+  :focus-visible { 
+    outline: 2px solid hsl(var(--brand)); 
+    outline-offset: 2px; 
+  }
 }
 
 /* Remove old KPI gradients - using neutral chips now */

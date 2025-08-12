@@ -35,7 +35,7 @@ export default function QuantityInput({
         size="icon"
         onClick={decrease}
         disabled={value <= min}
-        className="h-11 w-11 rounded-r-none border-r border-border min-w-[44px]"
+        className="h-11 w-11 radius-sm border-r border-border min-w-[44px]"
         aria-label="Diminuir quantidade"
       >
         <Minus className="h-4 w-4" />
@@ -48,7 +48,7 @@ export default function QuantityInput({
         size="icon"
         onClick={increase}
         disabled={value >= max}
-        className="h-11 w-11 rounded-l-none border-l border-border min-w-[44px]"
+        className="h-11 w-11 radius-sm border-l border-border min-w-[44px]"
         aria-label="Aumentar quantidade"
       >
         <Plus className="h-4 w-4" />
