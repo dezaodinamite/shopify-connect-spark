@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Leaf, Zap, Sparkles } from "lucide-react";
 
 export default function HeroContent() {
   return (
@@ -18,21 +19,38 @@ export default function HeroContent() {
         </Button>
       </div>
       
-      {/* Highlights moved here for better organization */}
+      {/* Modern KPIs Section */}
       <div className="mt-12 w-full px-4">
-        <div className="mx-auto max-w-4xl rounded-3xl overflow-hidden shadow-lg">
-          <div className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-md p-6 rounded-[2rem]">
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">100%</div>
-              <div className="text-xs md:text-sm text-brand-foreground">Natural</div>
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="kpi-card group">
+              <div className="flex flex-col items-center space-y-3">
+                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <Leaf className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-extrabold">100%</div>
+                <div className="text-sm md:text-base font-medium">Natural</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Rica</div>
-              <div className="text-xs md:text-sm text-brand-foreground">Antioxidantes</div>
+            
+            <div className="kpi-card antioxidants group">
+              <div className="flex flex-col items-center space-y-3">
+                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-extrabold">Rica</div>
+                <div className="text-sm md:text-base font-medium">Antioxidantes</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-xl md:text-2xl font-extrabold text-[hsl(var(--hero-title))]">Única</div>
-              <div className="text-xs md:text-sm text-brand-foreground">No Mundo</div>
+            
+            <div className="kpi-card unique group">
+              <div className="flex flex-col items-center space-y-3">
+                <div className="p-3 bg-white/20 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <Sparkles className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-extrabold">Única</div>
+                <div className="text-sm md:text-base font-medium">No Mundo</div>
+              </div>
             </div>
           </div>
         </div>

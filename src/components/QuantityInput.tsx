@@ -29,7 +29,7 @@ export default function QuantityInput({
   };
 
   return (
-    <div className={`flex items-center border rounded-2xl ${className}`}>
+    <div className={`flex items-center border rounded-xl shadow-soft hover:shadow-elevated transition-all duration-300 ${className}`}>
       <Button
         variant="ghost"
         size="icon"

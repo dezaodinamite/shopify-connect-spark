@@ -31,9 +31,9 @@ export default function CartPage() {
         ) : (
           <div className="grid gap-6">
             {items.map((i) => (
-               <div key={i.merchandiseId} className="flex items-center gap-4 border rounded-2xl p-4">
+               <div key={i.merchandiseId} className="flex items-center gap-4 border rounded-xl p-4 shadow-soft">
                  {i.imageUrl && (
-                   <img src={i.imageUrl} alt={i.title} className="w-20 h-20 object-cover rounded-2xl" />
+                   <img src={i.imageUrl} alt={i.title} className="w-20 h-20 object-cover rounded-xl" />
                  )}
                 <div className="flex-1">
                   <div className="font-medium">{i.title}</div>
@@ -54,7 +54,7 @@ export default function CartPage() {
               <div className="text-lg font-semibold">{currency(totalAmount, items[0]?.currencyCode || "BRL")}</div>
             </div>
             <div className="grid gap-3">
-              <div className="border rounded-2xl p-4">
+              <div className="border rounded-xl p-4 shadow-soft">
                 <h2 className="font-medium mb-2">Calcular frete</h2>
                 <ShippingCalculator lines={linesForCheckout} />
               </div>
