@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
 import { ShippingCalculator } from "@/components/ShippingCalculator";
 import QuantityInput from "@/components/QuantityInput";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);

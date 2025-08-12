@@ -8,6 +8,8 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Produtos", href: "#produtos" },
   { name: "Sobre", href: "#sobre" },
+  { name: "FAQ", href: "/faq" },
+  { name: "Contato", href: "/contato" },
 ];
 
 export default function MobileNav() {

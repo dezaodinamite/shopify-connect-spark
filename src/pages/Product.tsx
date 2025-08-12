@@ -10,6 +10,7 @@ import { toast } from "@/hooks/use-toast";
 import { ShippingCalculator } from "@/components/ShippingCalculator";
 import QuantityInput from "@/components/QuantityInput";
 import AddToCartIcon from "@/components/AddToCartIcon";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 interface Product {
   id: string;
@@ -127,6 +128,7 @@ export default function ProductPage() {
   return (
     <main className="min-h-screen bg-background">
       <section className="container mx-auto py-10">
+        <Breadcrumbs />
         {loading ? (
           <p className="text-muted-foreground">Carregando…</p>
         ) : !product ? (

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import MobileNav from "@/components/MobileNav";
-
+import SearchDialog from "@/components/SearchDialog";
 
 export default function Header() {
   const { count } = useCart();
@@ -26,7 +26,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full soft-transition safe-top glass-header">
-
       <div className="container mx-auto px-4">
         {/* Mobile Layout: Menu | Logo | Cart */}
         <div className="grid grid-cols-[44px_1fr_44px] md:flex md:justify-between items-center h-16 gap-4">
@@ -82,6 +81,18 @@ export default function Header() {
             >
               Sobre
             </a>
+            <Link 
+              to="/faq" 
+              className="text-sm font-medium text-foreground hover:text-brand soft-transition"
+            >
+              FAQ
+            </Link>
+            <Link 
+              to="/contato" 
+              className="text-sm font-medium text-foreground hover:text-brand soft-transition"
+            >
+              Contato
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -96,6 +107,9 @@ export default function Header() {
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
             </Button>
+
+            {/* Search dialog trigger (Ctrl/Cmd+K) */}
+            <SearchDialog />
 
             <CartSheetTrigger>
               <Button variant="ghost" size="icon" className="relative h-11 w-11">

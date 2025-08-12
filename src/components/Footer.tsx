@@ -19,6 +19,8 @@ export default function Footer() {
             <span className="font-medium">Links rápidos</span>
             <Link to="/" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Home</Link>
             <a href="#produtos" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Produtos</a>
+            <Link to="/faq" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">FAQ</Link>
+            <Link to="/contato" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Contato</Link>
             <Link to="/cart" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Carrinho</Link>
           </nav>
           <div className="text-sm opacity-90">
