@@ -157,7 +157,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid items-center gap-12 md:grid-cols-2 animate-fade-in">
             <article className="order-2 md:order-1">
-              <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+              <h2 className="font-playfair text-3xl md:text-4xl font-extrabold tracking-tight text-brand">
                 O melhor do Brasil mantido em segredo, até agora...
               </h2>
               <p className="mt-4 text-foreground/80 leading-relaxed max-w-prose">
