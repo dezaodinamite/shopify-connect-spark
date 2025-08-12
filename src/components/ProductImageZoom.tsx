@@ -79,14 +79,16 @@ export function ProductImageZoom({ src, alt }: Props) {
       onTouchEnd={onTouchEnd}
       className="max-w-md mx-auto"
     >
-      <AspectRatio ratio={1}>
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-full rounded-xl object-contain bg-card p-6"
-          loading="eager"
-        />
-      </AspectRatio>
+      <div className="rounded-xl border overflow-hidden">
+        <AspectRatio ratio={1}>
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain"
+            loading="eager"
+          />
+        </AspectRatio>
+      </div>
 
       {visible && createPortal(
         <div
