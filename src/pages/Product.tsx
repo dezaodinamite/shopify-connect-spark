@@ -131,7 +131,7 @@ export default function ProductPage() {
                   <img
                     src={activeImage}
                     alt={product.featuredImage?.altText || product.title}
-                    className="w-full h-full rounded-xl object-cover shadow"
+                    className="w-full h-full rounded-xl object-contain bg-card p-6 shadow"
                   />
                 </AspectRatio>
               )}
@@ -147,7 +147,7 @@ export default function ProductPage() {
                       }`}
                       aria-label={`Ver imagem ${idx + 1} do produto`}
                     >
-                      <img src={img.url} alt={img.alt} className="h-20 w-full object-cover" loading="lazy" />
+                      <img src={img.url} alt={img.alt} className="h-20 w-full object-contain bg-card p-1" loading="lazy" />
                     </button>
                   ))}
                 </div>

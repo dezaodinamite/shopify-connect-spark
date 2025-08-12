@@ -101,11 +101,11 @@ const Index = () => {
             {products.slice(0, 3).map((p) => (
               <article key={p.id} className="group overflow-hidden rounded-xl border bg-card hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <AspectRatio ratio={4/3}>
+                  <AspectRatio ratio={1}>
                     <img
                       src={p.featuredImage?.url || "/placeholder.svg"}
                       alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain bg-card p-6"
                       loading="lazy"
                     />
                   </AspectRatio>
