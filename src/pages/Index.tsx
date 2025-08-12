@@ -99,7 +99,7 @@ const Index = () => {
         ) : (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((p) => (
-              <article key={p.id} className="group overflow-hidden rounded-2xl border bg-card hover:shadow-lg transition-shadow">
+              <article key={p.id} className="group overflow-hidden rounded-3xl border bg-card hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <AspectRatio ratio={1}>
                     <img
