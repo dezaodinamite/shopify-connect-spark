@@ -34,10 +34,10 @@ export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
             <p className="text-muted-foreground">Seu carrinho está vazio.</p>
           ) : (
             items.map((i) => (
-              <div key={i.merchandiseId} className="flex items-center gap-4 border rounded p-3 bg-card">
-                {i.imageUrl && (
-                  <img src={i.imageUrl} alt={i.title} className="w-16 h-16 object-cover rounded" loading="lazy" />
-                )}
+               <div key={i.merchandiseId} className="flex items-center gap-4 border rounded-2xl p-3 bg-card">
+                 {i.imageUrl && (
+                   <img src={i.imageUrl} alt={i.title} className="w-16 h-16 object-cover rounded-2xl" loading="lazy" />
+                 )}
                 <div className="flex-1 min-w-0">
                   <div className="truncate font-medium">{i.title}</div>
                   <div className="text-sm text-muted-foreground">{currency(i.priceAmount, i.currencyCode)}</div>

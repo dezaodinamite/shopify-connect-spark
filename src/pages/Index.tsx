@@ -84,7 +84,7 @@ const Index = () => {
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((p) => (
               <Link key={p.id} to={`/product/${p.handle}`} className="group">
-                <article className="overflow-hidden rounded-xl border bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full cursor-pointer">
+                <article className="overflow-hidden rounded-3xl border bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full cursor-pointer">
                   <div className="relative overflow-hidden">
                     <AspectRatio ratio={1}>
                       <img
@@ -122,7 +122,7 @@ const Index = () => {
               <img
                 src="/lovable-uploads/afd87f4b-f8d6-4012-8360-6bcc57920347.png"
                 alt="Consumidora apresentando a bebida Suívie Jabuticaba"
-                className="w-full h-[420px] md:h-[520px] object-cover rounded-2xl shadow-lg"
+                className="w-full h-[420px] md:h-[520px] object-cover rounded-3xl shadow-lg"
                 loading="lazy"
               />
             </div>
@@ -173,7 +173,7 @@ const Index = () => {
               <img
                 src="/lovable-uploads/7b4ceade-aae9-4b29-8d6d-5c8b74bb2085.png"
                 alt="Latas Suívie Jabuticaba em bolsa de juta"
-                className="w-full h-[420px] md:h-[520px] object-cover rounded-2xl shadow-lg"
+                className="w-full h-[420px] md:h-[520px] object-cover rounded-3xl shadow-lg"
                 loading="lazy"
               />
             </div>

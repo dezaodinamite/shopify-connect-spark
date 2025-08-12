@@ -3,7 +3,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function ProductSkeleton() {
   return (
-    <div className="group overflow-hidden rounded-xl border bg-card">
+    <div className="group overflow-hidden rounded-3xl border bg-card">
       <div className="relative">
         <AspectRatio ratio={1}>
           <Skeleton className="h-full w-full" />
