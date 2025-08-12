@@ -113,7 +113,7 @@ const Index = () => {
           <div className="grid items-center gap-12 md:grid-cols-2 animate-fade-in">
             <div>
               <img
-                src="/lovable-uploads/80aa8876-94e5-4233-960f-f1a850dba0e2.png"
+                src="/lovable-uploads/afd87f4b-f8d6-4012-8360-6bcc57920347.png"
                 alt="Consumidora apresentando a bebida Suívie Jabuticaba"
                 className="w-full h-[420px] md:h-[520px] object-cover"
                 loading="lazy"
