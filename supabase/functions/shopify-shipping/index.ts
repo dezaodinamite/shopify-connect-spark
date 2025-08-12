@@ -141,7 +141,7 @@ Deno.serve(async (req) => {
             deliveryAddress: {
               country: 'BR',
               zip: postalCodeRaw,
-              provinceCode,
+              province: provinceCode,
               city,
               address1: 'Auto via CEP',
             },
