@@ -62,6 +62,9 @@ export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
                 <span>{currency(totalAmount, items[0]?.currencyCode || "BRL")}</span>
               </div>
               <Button className="w-full" onClick={checkout} variant="brand">Finalizar compra</Button>
+              <p className="text-xs text-muted-foreground text-center opacity-75 mt-2">
+                Checkout seguro processado pelo Shopify
+              </p>
             </div>
           )}
         </SheetFooter>
