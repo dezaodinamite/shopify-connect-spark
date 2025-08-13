@@ -56,6 +56,10 @@ All colors MUST be HSL.
     --hero-title: 0 0% 100%;
     --hero-subtitle: 0 0% 100% / 0.9;
     --glass: 0 0% 100%;
+    /* CTA highlight color */
+    --cta-highlight: 43 97% 57%; /* #FFBA22 */
+    /* Accent color for highlights */
+    --accent-orange: 43 97% 57%; /* #FFBA22 */
 
     /* Legacy Support */
     --chart-1: 12 76% 61%;
