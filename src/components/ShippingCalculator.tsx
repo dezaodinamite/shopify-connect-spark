@@ -68,7 +68,7 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
   return (
     <div className={className}>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="flex-1">
+        <div className="w-48">
           <label htmlFor="cep" className="mb-1 block text-sm text-muted-foreground">
             Calcular frete (CEP)
           </label>
