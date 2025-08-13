@@ -51,7 +51,11 @@ export default function QuantityInput({
         className="h-10 w-10 radius-none border-0 border-l border-border flex-shrink-0"
         aria-label="Aumentar quantidade"
       >
-        <Plus className="h-4 w-4" />
+        <img 
+          src="/lovable-uploads/4ab52ae0-6ad5-4cc3-b5e3-108dc3cde084.png" 
+          alt="Adicionar" 
+          className="h-4 w-4 object-contain"
+        />
       </Button>
     </div>
   );
