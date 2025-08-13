@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
 import QuantityInput from "@/components/QuantityInput";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Trash2 } from "lucide-react";
 
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);
@@ -31,27 +32,45 @@ export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
         <SheetHeader>
           <SheetTitle>Seu carrinho</SheetTitle>
         </SheetHeader>
-        <div className={isMobile ? "mt-4 space-y-4 max-h-[50vh] overflow-y-auto pr-1" : "mt-4 space-y-4"}>
+        <div className={isMobile ? "mt-4 space-y-3 max-h-[50vh] overflow-y-auto overflow-x-hidden pr-1" : "mt-4 space-y-3 overflow-x-hidden"}>
           {items.length === 0 ? (
             <p className="text-muted-foreground">Seu carrinho está vazio.</p>
           ) : (
             items.map((i) => (
-               <div key={i.merchandiseId} className="flex items-center gap-4 border rounded-xl p-3 bg-card shadow-soft">
+               <div key={i.merchandiseId} className="grid grid-cols-[auto,1fr,auto] items-center gap-3 border rounded-xl p-3 bg-card shadow-soft">
                  {i.imageUrl && (
-                   <img src={i.imageUrl} alt={i.title} className="w-16 h-16 object-cover rounded-xl" loading="lazy" />
+                   <img
+                     src={i.imageUrl}
+                     alt={i.title}
+                     className="w-[72px] h-[72px] md:w-16 md:h-16 object-cover rounded-lg shrink-0"
+                     loading="lazy"
+                   />
                  )}
-                <div className="flex-1 min-w-0">
-                  <div className="truncate font-medium">{i.title}</div>
-                  <div className="text-sm text-muted-foreground">{currency(i.priceAmount, i.currencyCode)}</div>
+                <div className="min-w-0 pr-2">
+                  <div className="font-medium line-clamp-2">{i.title}</div>
+                  <div className="text-sm font-semibold text-foreground mt-1">
+                    {currency(i.priceAmount, i.currencyCode)}
+                  </div>
                 </div>
-                <QuantityInput
-                  value={i.quantity}
-                  onChange={(newQty) => setQuantity(i.merchandiseId, newQty)}
-                  min={1}
-                  max={99}
-                  className="w-auto"
-                />
-                <Button variant="ghost" onClick={() => removeItem(i.merchandiseId)}>Remover</Button>
+                <div className="flex flex-col items-end gap-2">
+                  <QuantityInput
+                    value={i.quantity}
+                    onChange={(newQty) => setQuantity(i.merchandiseId, newQty)}
+                    min={1}
+                    max={99}
+                    size="sm"
+                    className="w-auto"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => removeItem(i.merchandiseId)}
+                    aria-label="Remover item do carrinho"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    <span className="sr-only">Remover</span>
+                  </Button>
+                </div>
               </div>
             ))
           )}

@@ -6,6 +6,7 @@ interface QuantityInputProps {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
+  size?: "sm" | "md";
   className?: string;
   "aria-label"?: string;
 }
@@ -15,9 +16,11 @@ export default function QuantityInput({
   onChange, 
   min = 1, 
   max = 99,
+  size = "md",
   className = "",
   "aria-label": ariaLabel
 }: QuantityInputProps) {
+  const btnSize = size === "sm" ? "h-10 w-10" : "h-11 w-11";
   const decrease = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -60,7 +63,7 @@ export default function QuantityInput({
         size="sm"
         onClick={decrease}
         disabled={value <= min}
-        className="h-11 w-11 p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors touch-target"
+        className={`${btnSize} p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors touch-target`}
         aria-label="Diminuir quantidade"
         type="button"
       >
@@ -74,15 +77,11 @@ export default function QuantityInput({
         size="sm"
         onClick={increase}
         disabled={value >= max}
-        className="h-11 w-11 p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors touch-target"
+        className={`${btnSize} p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors touch-target`}
         aria-label="Aumentar quantidade"
         type="button"
       >
-        <img 
-          src="/lovable-uploads/4ab52ae0-6ad5-4cc3-b5e3-108dc3cde084.png" 
-          alt="Adicionar" 
-          className="h-4 w-4 object-contain opacity-80 hover:opacity-100 transition-opacity"
-        />
+        <Plus className="h-4 w-4" />
       </Button>
     </div>
   );
