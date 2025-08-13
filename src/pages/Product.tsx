@@ -198,7 +198,7 @@ export default function ProductPage() {
                 </div>
               )}
 
-              <div className="mt-5 flex items-center gap-3">
+              <div className="mt-8 flex items-center gap-3">
                 <QuantityInput
                   value={qty}
                   onChange={setQty}
