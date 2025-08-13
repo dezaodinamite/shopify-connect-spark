@@ -207,7 +207,7 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative md:order-2">
+            <div className="relative md:order-2 order-2">
               <img
                 src="/lovable-uploads/13500a28-1b95-404c-b935-d463f3030c4e.png"
                 alt="Jabuticabas - super fruta rica em antioxidantes"
@@ -215,7 +215,7 @@ const Index = () => {
                 loading="lazy"
               />
             </div>
-            <div className="space-y-6 md:order-1">
+            <div className="space-y-6 md:order-1 order-1">
               <h2 className="text-3xl font-bold text-foreground">O melhor do Brasil mantido em segredo, até agora...</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Essa super fruta é uma verdadeira bomba de nutrientes, antioxidantes e polifenóis, que nós combinamos apenas com maçã e um toque de gengibre - e nada mais!
