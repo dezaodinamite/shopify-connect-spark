@@ -28,7 +28,7 @@ export default function Footer() {
         
         {/* Footer bottom - Copyright and credits aligned */}
         <div className="mt-8 pt-6 border-t border-brand-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm opacity-90">
-          <p>
+          <p className="text-center sm:text-left">
             © {new Date().getFullYear()} Suívie Jabuticaba. Todos os direitos reservados.
           </p>
           <p className="text-xs italic">
