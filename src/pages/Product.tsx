@@ -11,6 +11,7 @@ import { ShippingCalculator } from "@/components/ShippingCalculator";
 import QuantityInput from "@/components/QuantityInput";
 import AddToCartIcon from "@/components/AddToCartIcon";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import MobileStickyCartBar from "@/components/MobileStickyCartBar";
 
 interface Product {
   id: string;
@@ -127,7 +128,7 @@ export default function ProductPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="container mx-auto py-10">
+      <section className="container mx-auto pt-10 pb-28 md:pb-10">
         <Breadcrumbs />
         {loading ? (
           <p className="text-muted-foreground">Carregando…</p>
@@ -146,22 +147,38 @@ export default function ProductPage() {
                 />
               )}
 
-              {images.length > 1 && (
-                <div className="mt-4 grid grid-cols-5 gap-2 px-4">
-                  {images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(img.url)}
-                      className={`rounded-none overflow-hidden border focus:outline-none focus:ring-2 focus:ring-ring hover:border-primary transition-colors ${
-                        activeImage === img.url ? "ring-2 ring-primary" : ""
-                      }`}
-                      aria-label={`Ver imagem ${idx + 1} do produto`}
-                    >
-                      <img src={img.url} alt={img.alt} className="h-20 w-full object-contain bg-card p-1 rounded-none" loading="lazy" />
-                    </button>
-                  ))}
-                </div>
-              )}
+                <>
+                  <div className="mt-4 md:hidden px-4">
+                    <div className="flex gap-2 overflow-x-auto">
+                      {images.map((img, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveImage(img.url)}
+                          className={`flex-none w-20 h-20 overflow-hidden border focus:outline-none focus:ring-2 focus:ring-ring hover:border-primary transition-colors ${
+                            activeImage === img.url ? "ring-2 ring-primary" : ""
+                          }`}
+                          aria-label={`Ver imagem ${idx + 1} do produto`}
+                        >
+                          <img src={img.url} alt={img.alt} className="w-20 h-20 object-contain bg-card p-1 rounded-none" loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-4 hidden md:grid grid-cols-5 gap-2 px-4">
+                    {images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveImage(img.url)}
+                        className={`overflow-hidden border focus:outline-none focus:ring-2 focus:ring-ring hover:border-primary transition-colors ${
+                          activeImage === img.url ? "ring-2 ring-primary" : ""
+                        }`}
+                        aria-label={`Ver imagem ${idx + 1} do produto`}
+                      >
+                        <img src={img.url} alt={img.alt} className="h-20 w-full object-contain bg-card p-1 rounded-none" loading="lazy" />
+                      </button>
+                    ))}
+                  </div>
+                </>
             </div>
 
             <div>
@@ -198,7 +215,7 @@ export default function ProductPage() {
                 </div>
               )}
 
-              <div className="mt-12 flex items-center gap-3">
+              <div className="mt-12 hidden md:flex items-center gap-3">
                 <QuantityInput
                   value={qty}
                   onChange={setQty}
@@ -224,6 +241,17 @@ export default function ProductPage() {
           </article>
         )}
       </section>
+
+      {product && (
+        <MobileStickyCartBar
+          title={product.title}
+          priceText={priceText}
+          quantity={qty}
+          onQuantityChange={setQty}
+          onAdd={addToCart}
+          disabled={!selectedVariantAvailable}
+        />
+      )}
     </main>
   );
 }

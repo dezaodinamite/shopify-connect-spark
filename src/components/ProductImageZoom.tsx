@@ -88,7 +88,7 @@ export function ProductImageZoom({ src, alt, images = [], currentIndex = 0, onIm
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        className="max-w-md mx-auto cursor-pointer"
+        className="w-full cursor-pointer"
         onClick={handleImageClick}
       >
         <div className="rounded-xl border overflow-hidden">
