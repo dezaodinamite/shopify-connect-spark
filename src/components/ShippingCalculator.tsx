@@ -25,6 +25,7 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
   const [cep, setCep] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState<Option[] | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   async function calculate() {
     const digits = cep.replace(/\D/g, "");
@@ -67,25 +68,35 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
 
   return (
     <div className={className}>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="w-48">
-          <label htmlFor="cep" className="mb-1 block text-sm text-muted-foreground">
-            Calcular frete (CEP)
-          </label>
-          <Input
-            id="cep"
-            inputMode="numeric"
-            placeholder="00000-000"
-            value={cep}
-            onChange={(e) => setCep(e.target.value)}
-            onKeyDown={onKeyDown}
-            aria-label="CEP para calcular frete"
-          />
-        </div>
-        <Button onClick={calculate} disabled={loading} className="sm:self-end bg-foreground text-background hover:bg-foreground/90">
-          {loading ? "Calculando…" : "Calcular frete"}
+      {!isExpanded ? (
+        <Button 
+          onClick={() => setIsExpanded(true)} 
+          variant="outline" 
+          className="w-full justify-center"
+        >
+          Calcular frete
         </Button>
-      </div>
+      ) : (
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="w-48">
+            <label htmlFor="cep" className="mb-1 block text-sm text-muted-foreground">
+              Calcular frete (CEP)
+            </label>
+            <Input
+              id="cep"
+              inputMode="numeric"
+              placeholder="00000-000"
+              value={cep}
+              onChange={(e) => setCep(e.target.value)}
+              onKeyDown={onKeyDown}
+              aria-label="CEP para calcular frete"
+            />
+          </div>
+          <Button onClick={calculate} disabled={loading} className="sm:self-end bg-foreground text-background hover:bg-foreground/90">
+            {loading ? "Calculando…" : "Calcular frete"}
+          </Button>
+        </div>
+      )}
 
       {options && (
         <div className="mt-4 space-y-3">
