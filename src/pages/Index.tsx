@@ -150,7 +150,7 @@ const Index = () => {
                       <div className="text-xl font-bold text-foreground">
                         {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 px-2">
                         <QuantityInput
                           value={quantities[p.id] || 1}
                           onChange={(newQty) => updateQuantity(p.id, newQty)}
@@ -160,7 +160,7 @@ const Index = () => {
                         />
                         <Button 
                           variant="brand" 
-                          className="flex items-center gap-2 flex-1" 
+                          className="flex items-center gap-2 px-4" 
                           onClick={(e) => addToCart(p, e)}
                         >
                           <AddToCartIcon className="h-4 w-4" />
