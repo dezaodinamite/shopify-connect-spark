@@ -20,15 +20,8 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster={fallbackImage}
         >
           <source src={videoUrl} type="video/mp4" />
-          {/* Fallback image if video fails */}
-          <img
-            src={fallbackImage}
-            alt="Fundo com splash de jabuticaba"
-            className="h-[70vh] w-full object-cover md:h-[80vh] lg:h-[85vh]"
-          />
         </video>
         {/* Subtle dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 rounded-none" />
