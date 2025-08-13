@@ -141,7 +141,7 @@ export default function ProductPage() {
               )}
 
               {images.length > 1 && (
-                <div className="mt-4 grid grid-cols-5 gap-2">
+                <div className="mt-4 grid grid-cols-5 gap-2 px-4">
                   {images.map((img, idx) => (
                     <button
                       key={idx}
