@@ -216,7 +216,10 @@ export default function ProductPage() {
                 <ShippingCalculator lines={selectedVariant ? [{ merchandiseId: selectedVariant, quantity: qty }] : []} />
               </div>
 
-              <div className="prose prose-sm dark:prose-invert max-w-none mt-8" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || "" }} />
+              <div className="mt-8">
+                <h2 className="text-xl font-semibold text-foreground mb-4">Descrição do Produto</h2>
+                <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || "" }} />
+              </div>
             </div>
           </article>
         )}
