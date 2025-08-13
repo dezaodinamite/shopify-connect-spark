@@ -169,9 +169,9 @@ export default function ProductPage() {
               </div>
 
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                <Badge className="bg-[hsl(var(--shipping-green))] text-white hover:bg-[hsl(var(--shipping-green))]/90 font-medium px-3 py-1 text-sm" style={{borderRadius: '999px'}}>Envio Full Armazenaí</Badge>
-                <Badge className="bg-[hsl(var(--shipping-blue))] text-white hover:bg-[hsl(var(--shipping-blue))]/90 font-medium px-3 py-1 text-sm" style={{borderRadius: '999px'}}>Frete Same-Day Disponível</Badge>
-                <Badge className="bg-[hsl(var(--shipping-orange))] text-white hover:bg-[hsl(var(--shipping-orange))]/90 font-medium px-3 py-1 text-sm" style={{borderRadius: '999px'}}>Frete Next-Day Disponível</Badge>
+                <Badge className="bg-[hsl(var(--shipping-green))] font-medium px-3 py-1 text-sm" style={{borderRadius: '999px', color: 'white !important'}}>Envio Full Armazenaí</Badge>
+                <Badge className="bg-[hsl(var(--shipping-blue))] font-medium px-3 py-1 text-sm" style={{borderRadius: '999px', color: 'white !important'}}>Frete Same-Day Disponível</Badge>
+                <Badge className="bg-[hsl(var(--shipping-orange))] font-medium px-3 py-1 text-sm" style={{borderRadius: '999px', color: 'white !important'}}>Frete Next-Day Disponível</Badge>
               </div>
 
               {product.variants?.nodes && product.variants.nodes.length > 1 && (
