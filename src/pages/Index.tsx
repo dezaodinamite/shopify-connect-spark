@@ -28,6 +28,7 @@ const Index = () => {
   const [products, setProducts] = useState<ProductNode[]>([]);
   const [loading, setLoading] = useState(true);
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
+  const [addingToCart, setAddingToCart] = useState<{ [key: string]: boolean }>({});
   const { addItem } = useCart();
 
   useEffect(() => {
@@ -77,30 +78,43 @@ const Index = () => {
 
 
   // Function to add product to cart
-  const addToCart = (product: ProductNode, e: React.MouseEvent) => {
+  const addToCart = async (product: ProductNode, e: React.MouseEvent, customQuantity?: number) => {
     e.preventDefault();
     e.stopPropagation();
     
     const variantId = product.variants?.nodes?.[0]?.id;
     if (!variantId || !product.priceRange) return;
     
-    const quantity = quantities[product.id] || 1;
+    setAddingToCart(prev => ({ ...prev, [product.id]: true }));
+    
+    const quantity = customQuantity || quantities[product.id] || 1;
     const { amount, currencyCode } = product.priceRange.minVariantPrice;
     
-    addItem({
-      merchandiseId: variantId,
-      title: product.title,
-      priceAmount: parseFloat(amount),
-      currencyCode,
-      imageUrl: product.featuredImage?.url,
-      handle: product.handle,
-      quantity: quantity,
-    });
-    
-    toast({
-      title: "Adicionado ao carrinho",
-      description: `${quantity}x ${product.title}`,
-    });
+    try {
+      addItem({
+        merchandiseId: variantId,
+        title: product.title,
+        priceAmount: parseFloat(amount),
+        currencyCode,
+        imageUrl: product.featuredImage?.url,
+        handle: product.handle,
+        quantity: quantity,
+      });
+      
+      toast({
+        title: "Adicionado ao carrinho",
+        description: `${quantity}x ${product.title}`,
+      });
+    } finally {
+      setTimeout(() => {
+        setAddingToCart(prev => ({ ...prev, [product.id]: false }));
+      }, 1000);
+    }
+  };
+
+  // Quick add function for floating button
+  const quickAdd = (product: ProductNode, e: React.MouseEvent) => {
+    addToCart(product, e, 1);
   };
 
   const updateQuantity = (productId: string, newQuantity: number) => {
@@ -128,23 +142,44 @@ const Index = () => {
             ))}
           </div>
         ) : (
-          <div className="grid auto-rows-fr gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <ul className="grid auto-rows-fr gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto" role="list">
             {products.slice(0, 3).map((p) => (
-              <div key={p.id} className="h-full">
-                <Card className="group h-full flex flex-col">
-                  <Link to={`/product/${p.handle}`} className="block">
-                    <AspectRatio ratio={1}>
-                      <img
-                        src={p.featuredImage?.url || "/placeholder.svg"}
-                        alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
-                        className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg transition-transform duration-300 group-hover:scale-[1.03]"
-                        loading="lazy"
-                        decoding="async"
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      />
-                    </AspectRatio>
-                  </Link>
-                  <CardContent className="space-y-4">
+              <li key={p.id} className="h-full">
+                <Card className="group h-full flex flex-col ring-1 ring-border hover:ring-primary/20 focus-within:ring-primary/30 transition-all duration-300 hover:shadow-lg">
+                  <div className="relative">
+                    <Link to={`/product/${p.handle}`} className="block">
+                      <AspectRatio ratio={4/5}>
+                        <img
+                          src={p.featuredImage?.url || "/placeholder.svg"}
+                          alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
+                          className="h-full w-full object-contain bg-secondary/30 p-4 radius-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        />
+                      </AspectRatio>
+                    </Link>
+                    {/* Quick Add Floating Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => quickAdd(p, e)}
+                      disabled={addingToCart[p.id]}
+                      className="absolute top-3 right-3 w-10 h-10 bg-background/90 hover:bg-background border border-border rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:opacity-50"
+                      aria-label={`Adicionar rapidamente ${p.title} ao carrinho`}
+                      title="Adicionar rapidamente ao carrinho"
+                    >
+                      {addingToCart[p.id] ? (
+                        <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                      ) : (
+                        <img 
+                          src="/lovable-uploads/4ab52ae0-6ad5-4cc3-b5e3-108dc3cde084.png" 
+                          alt="Adicionar" 
+                          className="h-4 w-4 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                        />
+                      )}
+                    </button>
+                  </div>
+                  <CardContent className="flex-1 min-h-[120px] space-y-4 pt-6">
                     <div className="space-y-2">
                       <Link
                         to={`/product/${p.handle}`}
@@ -162,31 +197,48 @@ const Index = () => {
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter className="mt-auto flex flex-col gap-3">
+                  <CardFooter className="border-t border-border/50 flex flex-col gap-3 pt-4">
                     <div className="flex items-center gap-2 w-full">
                       <QuantityInput
                         value={quantities[p.id] || 1}
                         onChange={(newQty) => updateQuantity(p.id, newQty)}
                         min={1}
                         max={99}
-                        className="flex-shrink-0 w-24"
+                        className="flex-shrink-0"
+                        aria-label={`Quantidade de ${p.title}`}
                       />
                     </div>
                     <Button
                       type="button"
                       variant="brand"
-                      className="w-full sm:w-auto text-sm px-4 py-2 h-10 gap-2"
+                      className="w-full text-sm px-4 py-2 h-11 gap-2"
                       onClick={(e) => addToCart(p, e)}
-                      aria-label={`Adicionar ${p.title} ao carrinho`}
+                      disabled={addingToCart[p.id]}
+                      aria-label={`Adicionar ${quantities[p.id] || 1} unidade${(quantities[p.id] || 1) > 1 ? 's' : ''} de ${p.title} ao carrinho`}
                     >
-                      <AddToCartIcon className="h-4 w-4" />
-                      Adicionar ao Carrinho
+                      {addingToCart[p.id] ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                          Adicionando...
+                        </>
+                      ) : (
+                        <>
+                          <AddToCartIcon className="h-4 w-4" />
+                          Adicionar ao Carrinho
+                        </>
+                      )}
                     </Button>
+                    <Link
+                      to={`/product/${p.handle}`}
+                      className="text-xs text-muted-foreground hover:text-foreground underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-sm"
+                    >
+                      Ver detalhes do produto
+                    </Link>
                   </CardFooter>
                 </Card>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </section>
 
