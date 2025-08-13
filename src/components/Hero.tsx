@@ -36,7 +36,7 @@ export default function Hero() {
 
 
       {/* Content */}
-      <div className="relative container mx-auto flex h-[70vh] flex-col items-center justify-center text-center md:h-[80vh] lg:h-[85vh] px-4">
+      <div className="relative container mx-auto flex h-[70vh] flex-col items-center justify-center text-center md:h-[80vh] lg:h-[85vh] px-4 rounded-none">
         <HeroContent />
       </div>
     </section>
