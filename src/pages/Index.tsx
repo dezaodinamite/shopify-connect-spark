@@ -50,10 +50,23 @@ const productCardMetaByHandle: Record<string, any> = {
     rating: 4.8,
     reviewsCount: 127,
     discountPercent: 31,
-    secondaryImageUrl: customProductImages["suivie-jabuticaba-sem-gas"]?.[0],
-    subtitle: "Bebida naturalmente antioxidante",
     volumeLabel: "269ml",
-    highlightText: "300% mais antioxidantes que açaí",
+    gradientFrom: "from-jabuticaba-soft",
+    gradientTo: "to-jabuticaba-cream",
+  },
+  "camiseta-baleia-azul": {
+    badges: ["Novo"],
+    rating: 4.6,
+    reviewsCount: 32,
+    volumeLabel: "269ml",
+    gradientFrom: "from-jabuticaba-soft",
+    gradientTo: "to-jabuticaba-cream",
+  },
+  "imagem-para-selecao-infusao-refrescante-de-jabuticaba-100-natural-e-sem-acucar-com-gas-suivie-lata-269-ml": {
+    badges: ["Novo"],
+    rating: 4.6,
+    reviewsCount: 32,
+    volumeLabel: "269ml",
     gradientFrom: "from-jabuticaba-soft",
     gradientTo: "to-jabuticaba-cream",
   },
@@ -167,6 +180,9 @@ const Index = () => {
                 badges: ["Novo"],
                 rating: 4.6,
                 reviewsCount: 32,
+                volumeLabel: "269ml",
+                gradientFrom: "from-jabuticaba-soft",
+                gradientTo: "to-jabuticaba-cream",
               };
               return (
                 <ProductCard
