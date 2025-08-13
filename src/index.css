@@ -247,8 +247,8 @@ html {
   scroll-behavior: smooth; 
 }
 
-/* Global rounded defaults - removed to prevent conflicts */
-
+/* Global styles for buttons and inputs */
+@layer base {
   button, .btn { 
     border-radius: var(--radius-pill); 
     min-height: 44px; 
