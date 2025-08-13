@@ -92,21 +92,7 @@ export default function ProductCard({
                 loading="lazy"
               />
 
-              {/* Secondary image indicator only (does not replace main) */}
-              {meta?.secondaryImageUrl ? (
-                <img
-                  src={meta.secondaryImageUrl}
-                  alt={`Segunda imagem de ${product.title}`}
-                  className="absolute bottom-3 right-3 h-12 w-12 object-cover rounded-md ring-2 ring-background/80 shadow-md hidden sm:block"
-                  loading="lazy"
-                />
-              ) : null}
 
-              {meta?.overlayText ? (
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-1.5 radius-pill text-xs bg-foreground/90 text-background shadow soft-transition">
-                  {meta.overlayText}
-                </div>
-              ) : null}
 
               {/* Top-left badges */}
               {meta?.badges && meta.badges.length > 0 ? (
@@ -128,15 +114,6 @@ export default function ProductCard({
                 </div>
               ) : null}
 
-              {/* Bottom highlight chip */}
-              {meta?.highlightText ? (
-                <div className="absolute bottom-3 left-3 right-3 z-10">
-                  <div className="bg-gradient-to-br from-jabuticaba-wine to-jabuticaba-purple text-white px-3 py-2 rounded-lg text-xs font-medium text-center backdrop-blur-sm shadow-lg flex items-center justify-center gap-1">
-                    <Leaf className="w-3 h-3" />
-                    <span>{meta.highlightText}</span>
-                  </div>
-                </div>
-              ) : null}
             </div>
           </AspectRatio>
         </div>
@@ -146,9 +123,6 @@ export default function ProductCard({
             <h3 className="font-semibold text-lg line-clamp-2 text-foreground">
               {product.title}
             </h3>
-            {meta?.subtitle ? (
-              <p className="text-sm text-muted-foreground line-clamp-1">{meta.subtitle}</p>
-            ) : null}
             {product.description ? (
               <p className="text-muted-foreground line-clamp-2 text-sm">
                 {product.description}
