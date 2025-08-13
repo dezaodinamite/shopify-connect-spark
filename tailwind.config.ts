@@ -47,6 +47,19 @@ export default {
           DEFAULT: 'hsl(var(--brand))',
           foreground: 'hsl(var(--brand-foreground))'
         },
+        // Brand palette: Jabuticaba
+        jabuticaba: {
+          wine: 'hsl(var(--jabuticaba-wine))',
+          dark: 'hsl(var(--jabuticaba-dark))',
+          soft: 'hsl(var(--jabuticaba-soft))',
+          cream: 'hsl(var(--jabuticaba-cream))',
+          purple: 'hsl(var(--jabuticaba-purple))',
+        },
+        // Highlights
+        highlight: {
+          gold: 'hsl(var(--highlight-gold))',
+          forest: 'hsl(var(--highlight-forest))',
+        },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))'

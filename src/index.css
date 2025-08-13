@@ -80,6 +80,17 @@ All colors MUST be HSL.
     --shipping-green: 142 76% 36%;
     --shipping-blue: 217 91% 60%;
     --shipping-orange: 25 95% 53%;
+
+    /* Brand: Jabuticaba palette */
+    --jabuticaba-wine: 340 77% 35%;
+    --jabuticaba-dark: 336 63% 22%;
+    --jabuticaba-soft: 340 40% 92%;
+    --jabuticaba-cream: 43 97% 96%;
+    --jabuticaba-purple: 292 31% 35%;
+
+    /* Highlights */
+    --highlight-gold: 43 97% 57%;
+    --highlight-forest: 150 40% 28%;
   }
 
   .dark {
@@ -236,7 +247,16 @@ All colors MUST be HSL.
   .safe-top {
     padding-top: env(safe-area-inset-top);
   }
+
+  /* Brand card gradient utility */
+  .brand-card-gradient {
+    background: linear-gradient(135deg,
+      hsl(var(--jabuticaba-soft)) 0%,
+      hsl(var(--jabuticaba-wine)) 100%
+    );
+  }
 }
+
 
 /* Accessibility & Performance */
 *:focus-visible { 

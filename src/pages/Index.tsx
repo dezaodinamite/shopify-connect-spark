@@ -9,6 +9,7 @@ import QuantityInput from "@/components/QuantityInput";
 import AddToCartIcon from "@/components/AddToCartIcon";
 import { useCart } from "@/hooks/useCart";
 import { toast } from "@/hooks/use-toast";
+import ProductCard from "@/components/ProductCard";
 interface ProductNode {
   id: string;
   title: string;
@@ -41,6 +42,18 @@ const currency = (amount: number, currencyCode: string) => new Intl.NumberFormat
   style: "currency",
   currency: currencyCode || "BRL"
 }).format(amount);
+
+// Meta de cards por produto (badges, rating, desconto, etc.)
+const productCardMetaByHandle: Record<string, any> = {
+  "suivie-jabuticaba-sem-gas": {
+    badges: ["Mais Vendido", "Original"],
+    overlayText: "300% mais antioxidantes que açaí",
+    rating: 4.8,
+    reviewsCount: 127,
+    discountPercent: 31,
+    secondaryImageUrl: customProductImages["suivie-jabuticaba-sem-gas"]?.[0],
+  },
+};
 const Index = () => {
   const [products, setProducts] = useState<ProductNode[]>([]);
   const [loading, setLoading] = useState(true);
@@ -145,35 +158,24 @@ const Index = () => {
           length: 3
         }).map((_, i) => <ProductSkeleton key={i} />)}
           </div> : <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-            {products.slice(0, 3).map(p => <Link key={p.id} to={`/product/${p.handle}`} className="group block">
-                <div className="bg-background border border-border rounded-lg soft-transition hover:translate-y-[-2px] h-full overflow-hidden">
-                  <div className="relative">
-                    <AspectRatio ratio={1}>
-                      <img src={p.featuredImage?.url || "/placeholder.svg"} alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`} className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg" loading="lazy" />
-                    </AspectRatio>
-                  </div>
-                  <div className="p-6 space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="font-semibold text-lg line-clamp-2 text-foreground">{p.title}</h3>
-                      <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="text-xl font-bold text-foreground">
-                        {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
-                      </div>
-                      <div className="flex flex-col gap-3">
-                        <div className="flex items-center gap-2">
-                          <QuantityInput value={quantities[p.id] || 1} onChange={newQty => updateQuantity(p.id, newQty)} min={1} max={99} className="flex-shrink-0 w-24" />
-                        </div>
-                        <Button variant="brand" className="mx-auto w-fit text-sm px-4 py-2 h-10" onClick={e => addToCart(p, e)}>
-                          <AddToCartIcon className="h-4 w-4" />
-                          Adicionar ao Carrinho
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>)}
+            {products.slice(0, 3).map((p) => {
+              const meta = productCardMetaByHandle[p.handle] ?? {
+                badges: ["Novo"],
+                rating: 4.6,
+                reviewsCount: 32,
+              };
+              return (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  quantity={quantities[p.id] || 1}
+                  onQuantityChange={(newQty) => updateQuantity(p.id, newQty)}
+                  onAddToCart={(e) => addToCart(p, e)}
+                  meta={meta}
+                />
+              );
+            })}
+
           </div>}
       </section>
 
