@@ -7,10 +7,13 @@ import { X } from "lucide-react";
 interface Props {
   src: string;
   alt: string;
+  images?: Array<{url: string; alt: string}>;
+  currentIndex?: number;
+  onImageChange?: (index: number) => void;
 }
 
 // Image zoom with modal popup on click
-export function ProductImageZoom({ src, alt }: Props) {
+export function ProductImageZoom({ src, alt, images = [], currentIndex = 0, onImageChange }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [bgPos, setBgPos] = useState({ x: 50, y: 50 });
@@ -121,7 +124,7 @@ export function ProductImageZoom({ src, alt }: Props) {
 
       {/* Modal for fullscreen image */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-3xl max-h-[85vh] w-auto p-4 bg-background border">
+        <DialogContent className="max-w-3xl max-h-[85vh] w-auto p-4 bg-background border shadow-md">
           <div className="relative flex items-center justify-center">
             <button
               onClick={() => setModalOpen(false)}
@@ -130,6 +133,39 @@ export function ProductImageZoom({ src, alt }: Props) {
             >
               <X className="h-5 w-5" />
             </button>
+            
+            {/* Navigation arrows */}
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                    onImageChange?.(prevIndex);
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/20 hover:bg-black/40 text-foreground rounded-full transition-colors"
+                  aria-label="Imagem anterior"
+                >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                    onImageChange?.(nextIndex);
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-black/20 hover:bg-black/40 text-foreground rounded-full transition-colors"
+                  aria-label="Próxima imagem"
+                >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+            
             <img
               src={src}
               alt={alt}

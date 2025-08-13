@@ -137,7 +137,13 @@ export default function ProductPage() {
           <article className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
               {activeImage && (
-                <ProductImageZoom src={activeImage} alt={product.featuredImage?.altText || product.title} />
+                <ProductImageZoom 
+                  src={activeImage} 
+                  alt={product.featuredImage?.altText || product.title}
+                  images={images}
+                  currentIndex={images.findIndex(img => img.url === activeImage)}
+                  onImageChange={(index) => setActiveImage(images[index]?.url)}
+                />
               )}
 
               {images.length > 1 && (
