@@ -151,7 +151,7 @@ export default function ProductPage() {
                       }`}
                       aria-label={`Ver imagem ${idx + 1} do produto`}
                     >
-                      <img src={img.url} alt={img.alt} className="h-20 w-full object-contain bg-card p-1" loading="lazy" />
+                      <img src={img.url} alt={img.alt} className="h-20 w-full object-contain bg-card p-1 rounded-none" loading="lazy" />
                     </button>
                   ))}
                 </div>
