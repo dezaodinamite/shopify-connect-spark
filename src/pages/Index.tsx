@@ -192,6 +192,7 @@ const Index = () => {
                   onQuantityChange={(newQty) => updateQuantity(p.id, newQty)}
                   onAddToCart={(e) => addToCart(p, e)}
                   meta={meta}
+                  useSecondImage={p.handle === "suivie-jabuticaba-sem-gas"}
                 />
               );
             })}
