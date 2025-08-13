@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Hero from "@/components/Hero";
 import ProductSkeleton from "@/components/ProductSkeleton";
 import QuantityInput from "@/components/QuantityInput";
@@ -121,58 +122,69 @@ const Index = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Descubra a linha completa Suívie Jabuticaba - sabor autêntico e qualidade premium</p>
         </header>
         {loading ? (
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="grid auto-rows-fr gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {Array.from({ length: 3 }).map((_, i) => (
               <ProductSkeleton key={i} />
             ))}
           </div>
         ) : (
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="grid auto-rows-fr gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {products.slice(0, 3).map((p) => (
-              <Link key={p.id} to={`/product/${p.handle}`} className="group block">
-                <div className="bg-background border border-border rounded-lg soft-transition hover:translate-y-[-2px] h-full overflow-hidden">
-                  <div className="relative">
+              <div key={p.id} className="h-full">
+                <Card className="group h-full flex flex-col">
+                  <Link to={`/product/${p.handle}`} className="block">
                     <AspectRatio ratio={1}>
                       <img
                         src={p.featuredImage?.url || "/placeholder.svg"}
                         alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`}
-                        className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg"
+                        className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg transition-transform duration-300 group-hover:scale-[1.03]"
                         loading="lazy"
+                        decoding="async"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       />
                     </AspectRatio>
-                  </div>
-                  <div className="p-6 space-y-4">
+                  </Link>
+                  <CardContent className="space-y-4">
                     <div className="space-y-2">
-                      <h3 className="font-semibold text-lg line-clamp-2 text-foreground">{p.title}</h3>
+                      <Link
+                        to={`/product/${p.handle}`}
+                        className="hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-sm"
+                        aria-label={`Ver detalhes de ${p.title}`}
+                      >
+                        <h3 className="font-semibold text-lg line-clamp-2 text-foreground">{p.title}</h3>
+                      </Link>
                       <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
                     </div>
-                    <div className="space-y-4">
-                      <div className="text-xl font-bold text-foreground">
-                        {currency(parseFloat(p.priceRange?.minVariantPrice.amount || "0"), p.priceRange?.minVariantPrice.currencyCode || "BRL")}
-                      </div>
-                      <div className="flex flex-col gap-3">
-                        <div className="flex items-center gap-2">
-                          <QuantityInput
-                            value={quantities[p.id] || 1}
-                            onChange={(newQty) => updateQuantity(p.id, newQty)}
-                            min={1}
-                            max={99}
-                            className="flex-shrink-0 w-24"
-                          />
-                        </div>
-                        <Button 
-                          variant="brand" 
-                          className="mx-auto w-fit text-sm px-4 py-2 h-10" 
-                          onClick={(e) => addToCart(p, e)}
-                        >
-                          <AddToCartIcon className="h-4 w-4" />
-                          Adicionar ao Carrinho
-                        </Button>
-                      </div>
+                    <div className="text-xl font-bold text-foreground">
+                      {currency(
+                        parseFloat(p.priceRange?.minVariantPrice.amount || "0"),
+                        p.priceRange?.minVariantPrice.currencyCode || "BRL"
+                      )}
                     </div>
-                  </div>
-                </div>
-              </Link>
+                  </CardContent>
+                  <CardFooter className="mt-auto flex flex-col gap-3">
+                    <div className="flex items-center gap-2 w-full">
+                      <QuantityInput
+                        value={quantities[p.id] || 1}
+                        onChange={(newQty) => updateQuantity(p.id, newQty)}
+                        min={1}
+                        max={99}
+                        className="flex-shrink-0 w-24"
+                      />
+                    </div>
+                    <Button
+                      type="button"
+                      variant="brand"
+                      className="w-full sm:w-auto text-sm px-4 py-2 h-10 gap-2"
+                      onClick={(e) => addToCart(p, e)}
+                      aria-label={`Adicionar ${p.title} ao carrinho`}
+                    >
+                      <AddToCartIcon className="h-4 w-4" />
+                      Adicionar ao Carrinho
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </div>
             ))}
           </div>
         )}
