@@ -149,16 +149,7 @@ const Index = () => {
                 <div className="bg-background border border-border rounded-lg soft-transition hover:translate-y-[-2px] h-full overflow-hidden">
                   <div className="relative">
                     <AspectRatio ratio={1}>
-                      <img 
-                        src={
-                          p.handle && customProductImages[p.handle as keyof typeof customProductImages] 
-                            ? customProductImages[p.handle as keyof typeof customProductImages][0]
-                            : p.featuredImage?.url || "/placeholder.svg"
-                        } 
-                        alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`} 
-                        className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg" 
-                        loading="lazy" 
-                      />
+                      <img src={p.featuredImage?.url || "/placeholder.svg"} alt={p.featuredImage?.altText || `Imagem do produto ${p.title}`} className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg" loading="lazy" />
                     </AspectRatio>
                   </div>
                   <div className="p-6 space-y-4">
