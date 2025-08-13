@@ -6,7 +6,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import QuantityInput from "@/components/QuantityInput";
 import AddToCartIcon from "@/components/AddToCartIcon";
 import { cn } from "@/lib/utils";
-import { Star } from "lucide-react";
+import { Star, Leaf } from "lucide-react";
 import { HTMLAttributes, useMemo } from "react";
 
 export interface ProductCardProduct {
@@ -25,6 +25,11 @@ export interface ProductCardMeta {
   discountPercent?: number; // e.g., 30 meaning 30%
   overlayText?: string; // small overlay over image
   secondaryImageUrl?: string; // second image, NOT primary
+  subtitle?: string; // short supporting line under title
+  volumeLabel?: string; // e.g., "269ml"
+  highlightText?: string; // informative chip at bottom of image
+  gradientFrom?: string; // tailwind from-* class
+  gradientTo?: string; // tailwind to-* class
 }
 
 export interface ProductCardProps extends HTMLAttributes<HTMLDivElement> {
@@ -71,40 +76,68 @@ export default function ProductCard({
       <Card className={cn("overflow-hidden h-full", className)} {...props}>
         <div className="relative">
           <AspectRatio ratio={1}>
-            <img
-              src={product.featuredImage?.url || "/placeholder.svg"}
-              alt={
-                product.featuredImage?.altText || `Imagem do produto ${product.title}`
-              }
-              className="h-full w-full object-contain bg-secondary/30 p-6 radius-lg soft-transition group-hover:scale-[1.02]"
-              loading="lazy"
-            />
-            {/* Secondary image indicator only (does not replace main) */}
-            {meta?.secondaryImageUrl ? (
+            <div
+              className={cn(
+                "relative h-full w-full overflow-hidden bg-gradient-to-br",
+                meta?.gradientFrom || "from-jabuticaba-soft",
+                meta?.gradientTo || "to-jabuticaba-cream"
+              )}
+            >
               <img
-                src={meta.secondaryImageUrl}
-                alt={`Segunda imagem de ${product.title}`}
-                className="absolute bottom-3 right-3 h-12 w-12 object-cover rounded-md ring-2 ring-background/80 shadow-md hidden sm:block"
+                src={product.featuredImage?.url || "/placeholder.svg"}
+                alt={
+                  product.featuredImage?.altText || `Imagem do produto ${product.title}`
+                }
+                className="h-full w-full object-cover soft-transition duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-            ) : null}
 
-            {meta?.overlayText ? (
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-1.5 radius-pill text-xs bg-foreground/90 text-background shadow soft-transition">
-                {meta.overlayText}
-              </div>
-            ) : null}
+              {/* Secondary image indicator only (does not replace main) */}
+              {meta?.secondaryImageUrl ? (
+                <img
+                  src={meta.secondaryImageUrl}
+                  alt={`Segunda imagem de ${product.title}`}
+                  className="absolute bottom-3 right-3 h-12 w-12 object-cover rounded-md ring-2 ring-background/80 shadow-md hidden sm:block"
+                  loading="lazy"
+                />
+              ) : null}
 
-            {/* Top-left badges */}
-            {meta?.badges && meta.badges.length > 0 ? (
-              <div className="absolute left-3 top-3 flex flex-col gap-2">
-                {meta.badges.map((b, i) => (
-                  <Badge key={i} variant={i === 0 ? "default" : "secondary"}>
-                    {b}
-                  </Badge>
-                ))}
-              </div>
-            ) : null}
+              {meta?.overlayText ? (
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-1.5 radius-pill text-xs bg-foreground/90 text-background shadow soft-transition">
+                  {meta.overlayText}
+                </div>
+              ) : null}
+
+              {/* Top-left badges */}
+              {meta?.badges && meta.badges.length > 0 ? (
+                <div className="absolute left-3 top-3 z-10 flex flex-col gap-2">
+                  {meta.badges.map((b, i) => (
+                    <Badge key={i} variant={i === 0 ? "default" : "secondary"}>
+                      {b}
+                    </Badge>
+                  ))}
+                </div>
+              ) : null}
+
+              {/* Top-right volume label */}
+              {meta?.volumeLabel ? (
+                <div className="absolute top-3 right-3 z-10">
+                  <div className="bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-foreground shadow">
+                    {meta.volumeLabel}
+                  </div>
+                </div>
+              ) : null}
+
+              {/* Bottom highlight chip */}
+              {meta?.highlightText ? (
+                <div className="absolute bottom-3 left-3 right-3 z-10">
+                  <div className="bg-gradient-to-br from-jabuticaba-wine to-jabuticaba-purple text-white px-3 py-2 rounded-lg text-xs font-medium text-center backdrop-blur-sm shadow-lg flex items-center justify-center gap-1">
+                    <Leaf className="w-3 h-3" />
+                    <span>{meta.highlightText}</span>
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </AspectRatio>
         </div>
 
@@ -113,6 +146,9 @@ export default function ProductCard({
             <h3 className="font-semibold text-lg line-clamp-2 text-foreground">
               {product.title}
             </h3>
+            {meta?.subtitle ? (
+              <p className="text-sm text-muted-foreground line-clamp-1">{meta.subtitle}</p>
+            ) : null}
             {product.description ? (
               <p className="text-muted-foreground line-clamp-2 text-sm">
                 {product.description}

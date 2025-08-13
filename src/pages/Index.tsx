@@ -47,11 +47,15 @@ const currency = (amount: number, currencyCode: string) => new Intl.NumberFormat
 const productCardMetaByHandle: Record<string, any> = {
   "suivie-jabuticaba-sem-gas": {
     badges: ["Mais Vendido", "Original"],
-    overlayText: "300% mais antioxidantes que açaí",
     rating: 4.8,
     reviewsCount: 127,
     discountPercent: 31,
     secondaryImageUrl: customProductImages["suivie-jabuticaba-sem-gas"]?.[0],
+    subtitle: "Bebida naturalmente antioxidante",
+    volumeLabel: "269ml",
+    highlightText: "300% mais antioxidantes que açaí",
+    gradientFrom: "from-jabuticaba-soft",
+    gradientTo: "to-jabuticaba-cream",
   },
 };
 const Index = () => {
