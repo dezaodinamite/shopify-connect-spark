@@ -11,11 +11,11 @@ export default function Hero() {
     .getPublicUrl("suivie-hero-video.mp4").data.publicUrl;
 
   return (
-    <section className="relative" aria-label="Hero Suívie Jabuticaba">
+    <section className="relative rounded-none" aria-label="Hero Suívie Jabuticaba">
       {/* Background video */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden rounded-none">
         <video
-          className="h-[70vh] w-full object-cover object-center md:h-[80vh] lg:h-[85vh]"
+          className="h-[70vh] w-full object-cover object-center md:h-[80vh] lg:h-[85vh] rounded-none"
           autoPlay
           muted
           loop
@@ -31,7 +31,7 @@ export default function Hero() {
           />
         </video>
         {/* Subtle dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 rounded-none" />
       </div>
 
 

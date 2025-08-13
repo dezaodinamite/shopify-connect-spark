@@ -39,7 +39,7 @@ export default function Header() {
             <img 
               src="/lovable-uploads/b7ee09ad-b44f-44d1-9697-fc027b37c3f3.png" 
               alt="Suívie Logo" 
-              className="h-7 w-auto md:h-8"
+              className="h-9 w-auto md:h-11"
             />
           </Link>
 

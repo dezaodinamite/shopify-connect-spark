@@ -52,6 +52,10 @@ All colors MUST be HSL.
     --ring: 320 65% 52%;
     --radius: var(--radius-md);
     --brand-foreground: 0 0% 100%;
+    /* Hero specific tokens */
+    --hero-title: 0 0% 100%;
+    --hero-subtitle: 0 0% 100% / 0.9;
+    --glass: 0 0% 100%;
 
     /* Legacy Support */
     --chart-1: 12 76% 61%;
@@ -185,19 +189,22 @@ All colors MUST be HSL.
     outline-offset: 2px; 
   }
 
-  /* KPI Chips - Minimalist */
+  /* KPI Chips - Enhanced glass style */
   .kpi-chip {
     @apply inline-flex items-center gap-2 px-4 h-11;
-    background: hsl(var(--bg));
-    border: 1px solid hsl(var(--border));
+    background: hsl(var(--glass) / 0.25);
+    border: 1px solid hsl(var(--glass) / 0.35);
     border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-1);
-    color: hsl(var(--text));
+    box-shadow: 0 8px 24px hsl(var(--brand) / 0.08), var(--shadow-1);
+    color: hsl(var(--foreground));
+    backdrop-filter: saturate(120%) blur(10px);
     transition: all var(--dur) var(--ease);
   }
   
   .kpi-chip:hover { 
-    transform: translateY(-1px); 
+    transform: translateY(-2px); 
+    border-color: hsl(var(--brand));
+    box-shadow: 0 10px 28px hsl(var(--brand) / 0.14), var(--shadow-1);
   }
   
   .kpi-chip__title { 
@@ -206,7 +213,7 @@ All colors MUST be HSL.
   }
   
   .kpi-chip__muted { 
-    color: hsl(var(--muted)); 
+    color: hsl(var(--muted-foreground)); 
     font-size: 13px; 
   }
 

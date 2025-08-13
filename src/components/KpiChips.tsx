@@ -26,7 +26,7 @@ export default function KpiChips() {
         return (
           <div
             key={index}
-            className="kpi-chip flex-shrink-0 radius-pill px-3 py-2 backdrop-blur-md bg-background/40 border border-border/50 shadow-sm"
+            className="kpi-chip flex-shrink-0"
           >
             <IconComponent 
               className="h-5 w-5 text-muted-foreground" 
