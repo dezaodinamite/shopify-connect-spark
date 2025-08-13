@@ -16,13 +16,17 @@ export default function QuantityInput({
   max = 99,
   className = "" 
 }: QuantityInputProps) {
-  const decrease = () => {
+  const decrease = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (value > min) {
       onChange(value - 1);
     }
   };
 
-  const increase = () => {
+  const increase = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (value < max) {
       onChange(value + 1);
     }
