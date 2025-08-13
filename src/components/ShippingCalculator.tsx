@@ -69,13 +69,15 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
   return (
     <div className={className}>
       {!isExpanded ? (
-        <Button 
+        <div 
           onClick={() => setIsExpanded(true)} 
-          variant="outline" 
-          className="w-full justify-center"
+          className="w-full p-3 border border-border rounded-lg bg-secondary/30 hover:bg-secondary/50 cursor-pointer transition-colors flex items-center justify-between"
         >
-          Calcular frete
-        </Button>
+          <span className="text-sm font-medium text-foreground">Calcular frete</span>
+          <svg className="h-4 w-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       ) : (
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="w-48">
