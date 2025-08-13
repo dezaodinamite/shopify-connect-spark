@@ -82,7 +82,7 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
             aria-label="CEP para calcular frete"
           />
         </div>
-        <Button onClick={calculate} disabled={loading} className="sm:self-end">
+        <Button onClick={calculate} disabled={loading} className="sm:self-end bg-foreground text-background hover:bg-foreground/90">
           {loading ? "Calculando…" : "Calcular frete"}
         </Button>
       </div>
