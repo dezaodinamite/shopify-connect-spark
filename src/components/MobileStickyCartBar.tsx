@@ -22,10 +22,6 @@ export default function MobileStickyCartBar({
   return (
     <div className="md:hidden fixed inset-x-0 bottom-0 z-50 bg-background border-t border-border shadow-lg pb-[calc(env(safe-area-inset-bottom)+8px)]">
       <div className="container mx-auto py-3 flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <p className="text-sm text-muted-foreground truncate">{title}</p>
-          <p className="text-lg font-semibold text-foreground leading-tight">{priceText}</p>
-        </div>
         <QuantityInput
           value={quantity}
           onChange={onQuantityChange}
