@@ -46,7 +46,7 @@ export default function QuantityInput({
 
   return (
     <div 
-      className={`inline-flex items-center bg-background border border-border rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-primary/50 ${className}`}
+      className={`flex items-center justify-center bg-background border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-primary/50 w-fit mx-auto ${className}`}
       role="spinbutton"
       aria-valuenow={value}
       aria-valuemin={min}
