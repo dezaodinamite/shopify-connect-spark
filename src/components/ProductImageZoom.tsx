@@ -126,13 +126,6 @@ export function ProductImageZoom({ src, alt, images = [], currentIndex = 0, onIm
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogContent className="max-w-3xl max-h-[85vh] w-auto p-4 bg-background border shadow-md">
           <div className="relative flex items-center justify-center">
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute top-2 right-2 z-10 p-2 bg-black/20 hover:bg-black/40 text-foreground rounded-full transition-colors"
-              aria-label="Fechar modal"
-            >
-              <X className="h-5 w-5" />
-            </button>
             
             {/* Navigation arrows */}
             {images.length > 1 && (
