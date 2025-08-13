@@ -15,7 +15,7 @@ export default function Footer() {
               Bebidas naturalmente antioxidantes, direto da fazenda até você.
             </p>
           </div>
-          <nav aria-label="Links rápidos" className="grid gap-2 text-sm">
+          <nav aria-label="Links rápidos" className="grid grid-cols-2 gap-2 text-sm">
             <span className="font-medium">Links rápidos</span>
             <Link to="/" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Home</Link>
             <a href="#produtos" className="opacity-90 hover:opacity-100 underline-offset-4 hover:underline">Produtos</a>
