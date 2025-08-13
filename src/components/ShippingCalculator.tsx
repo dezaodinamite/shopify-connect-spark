@@ -88,22 +88,38 @@ export function ShippingCalculator({ lines, className }: { lines: ShippingLine[]
       </div>
 
       {options && (
-        <div className="mt-3 rounded-md border p-3">
+        <div className="mt-4 space-y-3">
           {options.length === 0 ? (
-            <p className="text-sm text-muted-foreground">Nenhuma opção disponível.</p>
+            <div className="rounded-lg border border-border p-4 text-center">
+              <p className="text-sm text-muted-foreground">Nenhuma opção disponível.</p>
+            </div>
           ) : (
-            <ul className="space-y-2">
-              {options.map((opt) => (
-                <li key={opt.handle} className="flex items-center justify-between">
-                  <span className="text-sm">{opt.title}</span>
-                  <span className="text-sm font-medium">
-                    {formatCurrency(opt.amount, opt.currencyCode)}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <>
+              <div className="space-y-2">
+                {options.map((opt, index) => (
+                  <div 
+                    key={opt.handle} 
+                    className="flex items-center justify-between p-3 bg-secondary/30 rounded-lg border border-border hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="flex flex-col">
+                      <span className="font-medium text-foreground">{opt.title}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {index === 0 ? "Entrega padrão" : "Entrega expressa"}
+                      </span>
+                    </div>
+                    <span className="text-lg font-bold text-foreground">
+                      {formatCurrency(opt.amount, opt.currencyCode)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-2 border-t border-border">
+                <p className="text-xs text-muted-foreground text-center">
+                  Valores e prazos estimados via Shopify/Frenet.
+                </p>
+              </div>
+            </>
           )}
-          <p className="mt-2 text-xs text-muted-foreground">Valores e prazos estimados via Shopify/Frenet.</p>
         </div>
       )}
     </div>
