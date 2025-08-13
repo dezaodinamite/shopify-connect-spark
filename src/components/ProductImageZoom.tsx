@@ -121,19 +121,19 @@ export function ProductImageZoom({ src, alt }: Props) {
 
       {/* Modal for fullscreen image */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-4xl w-full p-0 bg-black/95 border-none">
-          <div className="relative flex items-center justify-center min-h-[80vh]">
+        <DialogContent className="max-w-3xl max-h-[85vh] w-auto p-4 bg-background border">
+          <div className="relative flex items-center justify-center">
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors"
+              className="absolute top-2 right-2 z-10 p-2 bg-black/20 hover:bg-black/40 text-foreground rounded-full transition-colors"
               aria-label="Fechar modal"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             </button>
             <img
               src={src}
               alt={alt}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-[70vh] object-contain"
               onClick={() => setModalOpen(false)}
             />
           </div>
