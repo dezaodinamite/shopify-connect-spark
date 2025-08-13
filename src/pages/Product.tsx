@@ -128,7 +128,7 @@ export default function ProductPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <section className="container mx-auto pt-10 pb-28 md:pb-10">
+      <section className="container mx-auto pt-10 pb-36 md:pb-10">
         <Breadcrumbs />
         {loading ? (
           <p className="text-muted-foreground">Carregando…</p>

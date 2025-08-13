@@ -3,12 +3,14 @@ import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger
 import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/hooks/useCart";
 import QuantityInput from "@/components/QuantityInput";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);
 
 export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
   const { items, removeItem, setQuantity, totalAmount, linesForCheckout } = useCart();
+  const isMobile = useIsMobile();
 
   async function checkout() {
     const { data, error } = await supabase.functions.invoke("shopify-checkout", {
@@ -25,11 +27,11 @@ export function CartSheetTrigger({ children }: { children: React.ReactNode }) {
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent side="right" className="w-full sm:max-w-md">
+      <SheetContent side={isMobile ? "bottom" : "right"} className={isMobile ? "w-full rounded-t-2xl pt-4 pb-6 px-4" : "w-full sm:max-w-md"}>
         <SheetHeader>
           <SheetTitle>Seu carrinho</SheetTitle>
         </SheetHeader>
-        <div className="mt-4 space-y-4">
+        <div className={isMobile ? "mt-4 space-y-4 max-h-[50vh] overflow-y-auto pr-1" : "mt-4 space-y-4"}>
           {items.length === 0 ? (
             <p className="text-muted-foreground">Seu carrinho está vazio.</p>
           ) : (
