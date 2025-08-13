@@ -121,16 +121,16 @@ const Index = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Descubra a linha completa Suívie Jabuticaba - sabor autêntico e qualidade premium</p>
         </header>
         {loading ? (
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {Array.from({ length: 3 }).map((_, i) => (
               <ProductSkeleton key={i} />
             ))}
           </div>
         ) : (
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {products.slice(0, 3).map((p) => (
               <Link key={p.id} to={`/product/${p.handle}`} className="group block">
-                <div className="surface radius-lg soft-transition hover:translate-y-[-2px] h-full">
+                <div className="bg-background border border-border rounded-lg soft-transition hover:translate-y-[-2px] h-full overflow-hidden">
                   <div className="relative">
                     <AspectRatio ratio={1}>
                       <img
@@ -226,14 +226,16 @@ const Index = () => {
       {/* Call to Action */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl bg-foreground text-background radius-pill shadow-soft text-center px-6 py-12">
+          <div className="mx-auto max-w-3xl bg-foreground text-background radius-pill shadow-soft text-center px-6 py-12 space-y-6">
             <h2 className="text-3xl font-bold">TRULY FRESH, HONESTLY HEALTHY.</h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
               Suívie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas.
             </p>
-            <Button size="lg" variant="brand" className="text-lg px-8 py-3">
-              Experimente agora
-            </Button>
+            <div className="pt-2">
+              <Button size="lg" variant="brand" className="text-lg px-8 py-3">
+                Experimente agora
+              </Button>
+            </div>
           </div>
         </div>
       </section>
