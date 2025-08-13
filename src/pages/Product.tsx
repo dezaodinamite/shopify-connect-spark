@@ -24,6 +24,13 @@ interface Product {
   variants?: { nodes: { id: string; title: string; availableForSale: boolean }[] };
 }
 
+// Custom image mapping for products
+const customProductImages = {
+  "suivie-jabuticaba-sem-gas": [
+    "/lovable-uploads/fa093fe5-e24a-42cb-b324-40cea3ba9c3d.png"
+  ]
+};
+
 const currency = (amount: number, currencyCode: string) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: currencyCode || "BRL" }).format(amount);
 
@@ -62,6 +69,17 @@ export default function ProductPage() {
     product?.images?.nodes?.forEach((n) => {
       if (!list.find((i) => i.url === n.url)) list.push({ url: n.url, alt: n.altText || product!.title });
     });
+    
+    // Add custom images if available
+    if (product?.handle && customProductImages[product.handle as keyof typeof customProductImages]) {
+      const customImages = customProductImages[product.handle as keyof typeof customProductImages];
+      customImages.forEach((imageUrl) => {
+        if (!list.find((i) => i.url === imageUrl)) {
+          list.push({ url: imageUrl, alt: product.title });
+        }
+      });
+    }
+    
     return list;
   }, [product]);
 

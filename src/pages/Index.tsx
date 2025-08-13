@@ -30,6 +30,13 @@ interface ProductNode {
     }[];
   };
 }
+
+// Custom image mapping for products
+const customProductImages = {
+  "suivie-jabuticaba-sem-gas": [
+    "/lovable-uploads/fa093fe5-e24a-42cb-b324-40cea3ba9c3d.png"
+  ]
+};
 const currency = (amount: number, currencyCode: string) => new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: currencyCode || "BRL"
