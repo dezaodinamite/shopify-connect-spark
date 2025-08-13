@@ -247,12 +247,7 @@ html {
   scroll-behavior: smooth; 
 }
 
-/* Global rounded defaults - low specificity, components can override */
-@layer base {
-  div, section, article, footer,
-  a, span, .card, .chip, .badge, .modal, .dropdown { 
-    border-radius: var(--radius-md); 
-  }
+/* Global rounded defaults - removed to prevent conflicts */
 
   button, .btn { 
     border-radius: var(--radius-pill); 
