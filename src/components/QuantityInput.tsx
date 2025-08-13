@@ -29,32 +29,32 @@ export default function QuantityInput({
   };
 
   return (
-    <div className={`flex items-center border border-border radius-md soft-transition bg-background overflow-hidden ${className}`}>
+    <div className={`inline-flex items-center bg-background border border-border rounded-lg overflow-hidden ${className}`}>
       <Button
         variant="ghost"
-        size="icon"
+        size="sm"
         onClick={decrease}
         disabled={value <= min}
-        className="h-10 w-10 radius-none border-0 border-r border-border flex-shrink-0"
+        className="h-9 w-9 p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors"
         aria-label="Diminuir quantidade"
       >
-        <Minus className="h-4 w-4" />
+        <Minus className="h-3.5 w-3.5" />
       </Button>
-      <div className="flex-1 text-center px-2 py-2 min-w-[2rem] text-sm font-medium bg-background border-0">
+      <div className="flex-1 text-center px-4 py-2 min-w-[3rem] text-sm font-medium bg-background border-x border-border">
         {value}
       </div>
       <Button
         variant="ghost"
-        size="icon"
+        size="sm"
         onClick={increase}
         disabled={value >= max}
-        className="h-10 w-10 radius-none border-0 border-l border-border flex-shrink-0"
+        className="h-9 w-9 p-0 rounded-none border-0 hover:bg-secondary/50 disabled:opacity-30 transition-colors"
         aria-label="Aumentar quantidade"
       >
         <img 
           src="/lovable-uploads/4ab52ae0-6ad5-4cc3-b5e3-108dc3cde084.png" 
           alt="Adicionar" 
-          className="h-4 w-4 object-contain"
+          className="h-4 w-4 object-contain opacity-80 hover:opacity-100 transition-opacity"
         />
       </Button>
     </div>
