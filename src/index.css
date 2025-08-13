@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Design System Tokens - Minimalist & Modern */
-    --brand: 320 65% 52%; /* Magenta Suívie */
+    --brand: 340 77% 35%; /* New Brand (#A01543) */
     --bg: 0 0% 100%; /* #FFFFFF */
     --bg-subtle: 240 6% 97%; /* #F7F7F9 */
     --text: 240 10% 5%; /* #0E0E11 */
@@ -37,7 +37,7 @@ All colors MUST be HSL.
     --card-foreground: 240 10% 5%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 5%;
-    --primary: 320 65% 52%;
+    --primary: 340 77% 35%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 6% 97%;
     --secondary-foreground: 240 7% 40%;
@@ -49,7 +49,7 @@ All colors MUST be HSL.
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 92%;
     --input: 220 15% 92%;
-    --ring: 320 65% 52%;
+    --ring: 340 77% 35%;
     --radius: var(--radius-md);
     --brand-foreground: 0 0% 100%;
     /* Hero specific tokens */
@@ -91,7 +91,7 @@ All colors MUST be HSL.
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 320 65% 52%;
+    --primary: 340 77% 35%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 4% 15%;
     --secondary-foreground: 0 0% 98%;
@@ -103,8 +103,8 @@ All colors MUST be HSL.
     --destructive-foreground: 0 0% 98%;
     --border: 240 4% 15%;
     --input: 240 4% 15%;
-    --ring: 320 65% 52%;
-    --brand: 320 65% 52%;
+    --ring: 340 77% 35%;
+    --brand: 340 77% 35%;
     --brand-foreground: 0 0% 100%;
 
     --chart-1: 220 70% 50%;

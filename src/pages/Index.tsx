@@ -224,9 +224,9 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center text-background space-y-6">
+          <div className="mx-auto max-w-3xl bg-[hsl(var(--cta-highlight))] radius-lg shadow-soft text-center text-foreground px-6 py-12">
             <h2 className="text-3xl font-bold">TRULY FRESH, HONESTLY HEALTHY.</h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
               Suívie é uma deliciosa infusão Suiço-Brasileira transbordando de Jabuticaba e maçãs frescas.

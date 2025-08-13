@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Moon, Sun } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/hooks/useCart";
 import { CartSheetTrigger } from "@/components/CartSheet";
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "@/components/ThemeProvider";
+// import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import MobileNav from "@/components/MobileNav";
 import SearchDialog from "@/components/SearchDialog";
 
 export default function Header() {
   const { count } = useCart();
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
   const prev = useRef(count);
   const [pop, setPop] = useState(false);
 
@@ -47,7 +47,7 @@ export default function Header() {
           <div className="md:hidden justify-self-end">
             <CartSheetTrigger>
               <Button variant="ghost" size="icon" className="relative h-11 w-11">
-                <ShoppingCart className="h-5 w-5 text-foreground" strokeWidth={1.5} />
+                <ShoppingCart className="h-5 w-5 text-brand" strokeWidth={1.5} />
                 {count > 0 && (
                   <span 
                     className={`absolute -top-1 -right-1 bg-brand text-brand-foreground text-xs radius-pill h-5 w-5 flex items-center justify-center soft-transition min-w-[20px] ${
@@ -97,23 +97,12 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="h-11 w-11"
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-
             {/* Search dialog trigger (Ctrl/Cmd+K) */}
             <SearchDialog />
 
             <CartSheetTrigger>
               <Button variant="ghost" size="icon" className="relative h-11 w-11">
-                <ShoppingCart className="h-5 w-5 text-foreground" strokeWidth={1.5} />
+                <ShoppingCart className="h-5 w-5 text-brand" strokeWidth={1.5} />
                 {count > 0 && (
                   <span 
                     className={`absolute -top-1 -right-1 bg-brand text-brand-foreground text-xs radius-pill h-5 w-5 flex items-center justify-center soft-transition min-w-[20px] ${
