@@ -152,7 +152,7 @@ export default function ProductPage() {
                     <button
                       key={idx}
                       onClick={() => setActiveImage(img.url)}
-                      className={`rounded-none overflow-hidden border focus:outline-none focus:ring-2 focus:ring-ring ${
+                      className={`rounded-none overflow-hidden border focus:outline-none focus:ring-2 focus:ring-ring hover:border-primary transition-colors ${
                         activeImage === img.url ? "ring-2 ring-primary" : ""
                       }`}
                       aria-label={`Ver imagem ${idx + 1} do produto`}
