@@ -196,7 +196,7 @@ All colors MUST be HSL.
   /* KPI Chips - Elegant solid style */
   .kpi-chip {
     @apply inline-flex items-center gap-3 px-5 h-12;
-    background: hsl(var(--background));
+    background: hsl(var(--background) / 0.85);
     border: 2px solid hsl(var(--border));
     border-radius: var(--radius-pill);
     box-shadow: 0 4px 16px hsl(var(--foreground) / 0.08), 0 2px 4px hsl(var(--foreground) / 0.04);

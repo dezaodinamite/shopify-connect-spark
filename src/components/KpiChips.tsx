@@ -34,7 +34,6 @@ export default function KpiChips() {
             />
             <div className="flex flex-col items-start">
               <span className="kpi-chip__title">{kpi.title}</span>
-              <span className="kpi-chip__muted">{kpi.subtitle}</span>
             </div>
           </div>
         );
