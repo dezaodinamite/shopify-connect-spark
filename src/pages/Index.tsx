@@ -162,7 +162,7 @@ const Index = () => {
                         </div>
                         <Button 
                           variant="brand" 
-                          className="w-full text-sm px-3 py-2 h-10" 
+                          className="mx-auto w-fit text-sm px-4 py-2 h-10" 
                           onClick={(e) => addToCart(p, e)}
                         >
                           <AddToCartIcon className="h-4 w-4" />
