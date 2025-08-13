@@ -12,7 +12,8 @@ export default function Footer() {
               className="h-12 w-auto"
             />
             <p className="mt-2 text-sm opacity-90">
-              Bebidas naturalmente antioxidantes, direto da fazenda até você.
+              Bebidas naturalmente antioxidantes,<br />
+              direto da fazenda até você.
             </p>
           </div>
           <nav aria-label="Links rápidos" className="grid grid-cols-2 gap-2 text-sm">
