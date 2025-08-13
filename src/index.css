@@ -193,27 +193,26 @@ All colors MUST be HSL.
     outline-offset: 2px; 
   }
 
-  /* KPI Chips - Enhanced glass style */
+  /* KPI Chips - Elegant solid style */
   .kpi-chip {
-    @apply inline-flex items-center gap-2 px-4 h-11;
-    background: hsl(var(--glass) / 0.25);
-    border: 1px solid hsl(var(--glass) / 0.35);
+    @apply inline-flex items-center gap-3 px-5 h-12;
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--border));
     border-radius: var(--radius-pill);
-    box-shadow: 0 8px 24px hsl(var(--brand) / 0.08), var(--shadow-1);
+    box-shadow: 0 4px 16px hsl(var(--foreground) / 0.08), 0 2px 4px hsl(var(--foreground) / 0.04);
     color: hsl(var(--foreground));
-    backdrop-filter: saturate(120%) blur(10px);
     transition: all var(--dur) var(--ease);
   }
   
   .kpi-chip:hover { 
-    transform: translateY(-2px); 
+    transform: translateY(-3px); 
     border-color: hsl(var(--brand));
-    box-shadow: 0 10px 28px hsl(var(--brand) / 0.14), var(--shadow-1);
+    box-shadow: 0 8px 24px hsl(var(--brand) / 0.12), 0 4px 8px hsl(var(--foreground) / 0.06);
   }
   
   .kpi-chip__title { 
     font-weight: 700; 
-    font-size: 14px; 
+    font-size: 15px; 
   }
   
   .kpi-chip__muted { 
