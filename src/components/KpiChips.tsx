@@ -29,7 +29,7 @@ export default function KpiChips() {
             className="kpi-chip flex-shrink-0"
           >
             <IconComponent 
-              className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" 
+              className="h-3 w-3 sm:h-5 sm:w-5 text-muted-foreground" 
               strokeWidth={1.75} 
             />
             <div className="flex flex-col items-start">
