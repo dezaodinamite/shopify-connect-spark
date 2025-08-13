@@ -38,6 +38,7 @@ export interface ProductCardProps extends HTMLAttributes<HTMLDivElement> {
   onQuantityChange: (newQty: number) => void;
   onAddToCart: (e: React.MouseEvent) => void;
   meta?: ProductCardMeta;
+  useSecondImage?: boolean; // New prop to control which image to use
 }
 
 const currency = (amount: number, currencyCode: string) =>
@@ -52,6 +53,7 @@ export default function ProductCard({
   onQuantityChange,
   onAddToCart,
   meta,
+  useSecondImage = false,
   className,
   ...props
 }: ProductCardProps) {
@@ -71,6 +73,16 @@ export default function ProductCard({
 
   const rating = Math.max(0, Math.min(5, meta?.rating ?? 0));
 
+  // Determine which image to use
+  const getDisplayImage = () => {
+    if (useSecondImage && product.featuredImage?.url) {
+      // Try to get second image from Shopify data structure
+      // This would need the full product data with images array
+      return product.featuredImage.url; // For now, keeping the same image
+    }
+    return product.featuredImage?.url || "/placeholder.svg";
+  };
+
   return (
     <Link to={`/product/${product.handle}`} className="group block">
       <Card className={cn("overflow-hidden h-full", className)} {...props}>
@@ -84,7 +96,7 @@ export default function ProductCard({
               )}
             >
               <img
-                src={product.featuredImage?.url || "/placeholder.svg"}
+                src={getDisplayImage()}
                 alt={
                   product.featuredImage?.altText || `Imagem do produto ${product.title}`
                 }
